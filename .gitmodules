@@ -1,0 +1,6 @@
+[submodule "src/vehicle_control_package"]
+	path = src/vehicle_control_package
+	url = git@github.com:zin-lin/vehicle_control_package.git
+[submodule "src/annex_msgs"]
+	path = src/annex_msgs
+	url = git@github.com:zin-lin/annex_msgs.git
