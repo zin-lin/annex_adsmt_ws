@@ -4,3 +4,9 @@
 [submodule "src/annex_msgs"]
 	path = src/annex_msgs
 	url = git@github.com:zin-lin/annex_msgs.git
+[submodule "src/path_planner_package"]
+	path = src/path_planner_package
+	url = git@github.com:zin-lin/path_planner_package.git
+[submodule "src/lidar_package"]
+	path = src/lidar_package
+	url = git@github.com:zin-lin/lidar_package.git
