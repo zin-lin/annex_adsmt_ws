@@ -1,0 +1,46 @@
+# ADS-MT
+
+<robot n_model="ADS-MT" author="zin" unit="mm">
+
+    <essentials unit='mm' robotics_part='true' src_static='../designs'>
+        <chassis joint_pos='(19, 17)' src='ads-mt-assembled-body.stl' displacement_mode='corners'></chassis>
+        <double_u joint_pos='10' src='double_u_elong.stl'/>
+        <shin joint_pos='34.45' src='shin.stl'></shin>
+        <thigh joint_pos='10' src='thigh.stl'></thigh>
+    </essentials>
+
+    <assembly>
+        <chassis name ='chassis'>
+            <double_u>
+                <thigh>
+                    <shin/>
+                </thigh>
+            </double_u>
+
+            <double_u>
+                <thigh>
+                    <shin/>
+                </thigh>
+            </double_u>
+
+            <double_u>
+                <thigh>
+                    <shin/>
+                </thigh>
+            </double_u>
+
+            <double_u>
+                <thigh>
+                    <shin/>
+                </thigh>
+            </double_u>
+
+            <double_u>
+                <thigh>
+                    <shin/>
+                </thigh>
+            </double_u>
+        </chassis>
+    </assembly>
+
+</robot>
