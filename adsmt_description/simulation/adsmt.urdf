@@ -1,0 +1,76 @@
+<?xml version="1.0" ?>
+<robot name="custom_robot">
+    <!-- Base Link -->
+    <link name="body">
+        <origin rpy ='0 0 0' xyz= '0 0 0' />
+        <visual>
+            <geometry>
+                <mesh filename="package://adsmt_description/simulation/designs/ads-mt-assembled-body.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name='yellow'>
+                <color rgba='1 1 0 1'/>
+            </material>
+        </visual>
+    </link>
+
+    <!-- Joints and Links -->
+    <joint name="joint_1" type="revolute">
+        <parent link="body"/>
+        <child link="joint_1_link"/>
+        <origin xyz="-0.01052 0.00903 0.0" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="-3.1415" upper="3.1415" effort="10" velocity="1.0"/>
+    </joint>
+    <link name="joint_1_link">
+        <visual>
+            <geometry>
+                <mesh filename="package://adsmt_description/simulation/designs/double_u_elong.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <joint name="joint_2" type="revolute">
+        <parent link="body"/>
+        <child link="joint_2_link"/>
+        <origin xyz="-0.01000 0.00896 0.0" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="-3.1415" upper="3.1415" effort="10" velocity="1.0"/>
+    </joint>
+    <link name="joint_2_link">
+        <visual>
+            <geometry>
+                <mesh filename="package://adsmt_description/simulation/designs/double_u_elong.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <joint name="joint_3" type="revolute">
+        <parent link="body"/>
+        <child link="joint_3_link"/>
+        <origin xyz="0.027 -0.00155 0.072" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="-3.1415" upper="3.1415" effort="10" velocity="1.0"/>
+    </joint>
+    <link name="joint_3_link">
+        <visual>
+            <geometry>
+                <mesh filename="package://adsmt_description/simulation/designs/double_u_elong.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <joint name="joint_4" type="revolute">
+        <parent link="body"/>
+        <child link="joint_4_link"/>
+        <origin xyz="0.010 0.01155 0.072" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="-3.1415" upper="3.1415" effort="10" velocity="1.0"/>
+    </joint>
+    <link name="joint_4_link">
+        <visual>
+            <geometry>
+                <mesh filename="package://adsmt_description/simulation/designs/double_u_elong.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+    </link>
+</robot>
