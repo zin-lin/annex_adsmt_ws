@@ -6,8 +6,8 @@ find_package(ament_cmake REQUIRED)
 
 # Install the URDF and STL files
 install(
-  DIRECTORY simulation/
-  DESTINATION share/${PROJECT_NAME}/simulation
+  DIRECTORY urdf/
+  DESTINATION share/${PROJECT_NAME}/urdf
 )
 
 install(

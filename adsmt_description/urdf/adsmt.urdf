@@ -1,0 +1,335 @@
+<?xml version="1.0" ?>
+<robot name="ads-mt">
+
+    <!-- Base Link -->
+    <link name="body">
+        <visual>
+            <geometry>
+                <mesh filename="package://adsmt_description/urdf/designs/body.stl" scale=" 0.01 0.01 0.01"/>
+            </geometry>
+            <material name = 'body'>
+                <color rgba='1 1 1 1'/>
+            </material>
+
+            <collision>
+                <geometry>
+                    <mesh filename="package://adsmt_description/urdf/designs/body.stl" scale=" 0.01 0.01 0.01"/>
+                </geometry>
+            </collision>
+
+        </visual>
+    </link>
+
+    <!-- Leg 1 -->
+    <!-- Joints and Links -->
+    <joint name="joint_1" type="revolute">
+        <parent link="body"/>
+        <child link="joint_1_link"/>
+        <origin xyz="-0.265 -0.60 0.0" rpy="0 0 -1.5708"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="-3.1415" upper="3.1415" effort="10" velocity="1.0"/>
+    </joint>
+    <link name="joint_1_link">
+        <visual>
+            <geometry>
+                <mesh filename="package://adsmt_description/urdf/designs/double_u.stl" scale=" 0.01 0.01 0.01"/>
+
+            </geometry>
+                <material name = 'u joints 1'>
+                    <color rgba='0 0 1 1'/>
+                </material>
+
+              <collision>
+                <geometry>
+                    <mesh filename="package://adsmt_description/urdf/designs/double_u.stl" scale=" 0.01 0.01 0.01"/>
+                </geometry>
+            </collision>
+        </visual>
+    </link>
+
+
+    <!-- Thigh 1 -->
+    <joint name="joint_1_1" type="revolute">
+        <parent link="joint_1_link"/>
+        <child link="joint_1_thigh"/>
+        <origin xyz="-0.0 -0.46 0.0" rpy="3.1415 0 0"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-3.1415" upper="3.1415" effort="10" velocity="1.0"/>
+    </joint>
+    <link name="joint_1_thigh">
+        <visual>
+            <geometry>
+                <mesh filename="package://adsmt_description/urdf/designs/thigh.stl" scale=" 0.01 0.01 0.01"/>
+
+            </geometry>
+                <material name = 'u joints t'>
+                    <color rgba='1 0 1 1'/>
+                </material>
+            <collision>
+                <geometry>
+                    <mesh filename="package://adsmt_description/urdf/designs/thigh.stl" scale=" 0.01 0.01 0.01"/>
+                </geometry>
+            </collision>
+        </visual>
+    </link>
+
+    <!-- Shin 1 -->
+    <joint name="joint_1_1_1" type="revolute">
+        <parent link="joint_1_thigh"/>
+        <child link="joint_1_shin"/>
+        <origin xyz="-0.0 0.65 0.0" rpy="3.1415 0 0"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-3.1415" upper="3.1415" effort="10" velocity="1.0"/>
+    </joint>
+    <link name="joint_1_shin">
+        <visual>
+            <geometry>
+                <mesh filename="package://adsmt_description/urdf/designs/shin.stl" scale=" 0.01 0.01 0.01"/>
+
+            </geometry>
+                <material name = 'u joints 7'>
+                    <color rgba='0 0 0 1'/>
+                </material>
+            <collision>
+                <geometry>
+                    <mesh filename="package://adsmt_description/urdf/designs/shin.stl" scale=" 0.01 0.01 0.01"/>
+                </geometry>
+            </collision>
+        </visual>
+    </link>
+
+    <!-- /Leg 1 -->
+
+    <!-- Leg 2 -->
+    <joint name="joint_2" type="revolute">
+        <parent link="body"/>
+        <child link="joint_2_link"/>
+        <origin xyz="-0.25 0.6 0.0" rpy="0 0 1.5708"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="-3.1415" upper="3.1415" effort="10" velocity="1.0"/>
+    </joint>
+    <link name="joint_2_link">
+        <visual>
+            <geometry>
+                <mesh filename="package://adsmt_description/urdf/designs/double_u_r.stl" scale=" 0.01 0.01 0.01"/>
+
+            </geometry>
+
+            <collision>
+                <geometry>
+                    <mesh filename="package://adsmt_description/urdf/designs/double_u_r.stl" scale=" 0.01 0.01 0.01"/>
+                </geometry>
+            </collision>
+
+            <material name = 'u joints 2'>
+                    <color rgba='0 0 1 1'/>
+                </material>
+        </visual>
+    </link>
+
+    <!-- Thigh 2 -->
+    <joint name="joint_2_1" type="revolute">
+        <parent link="joint_2_link"/>
+        <child link="joint_2_thigh"/>
+        <origin xyz="-0.0 0.46 0.0" rpy="0 0 0"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-3.1415" upper="3.1415" effort="10" velocity="1.0"/>
+    </joint>
+    <link name="joint_2_thigh">
+        <visual>
+            <geometry>
+                <mesh filename="package://adsmt_description/urdf/designs/thigh.stl" scale=" 0.01 0.01 0.01"/>
+
+            </geometry>
+                <material name = 'u joints t'>
+                    <color rgba='1 0 1 1'/>
+                </material>
+            <collision>
+                <geometry>
+                    <mesh filename="package://adsmt_description/urdf/designs/thigh.stl" scale=" 0.01 0.01 0.01"/>
+                </geometry>
+            </collision>
+        </visual>
+    </link>
+
+
+    <!-- Shin 2 -->
+    <joint name="joint_2_1_1" type="revolute">
+        <parent link="joint_2_thigh"/>
+        <child link="joint_2_shin"/>
+        <origin xyz="-0.0 0.65 0.0" rpy="3.1415 0 0"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-3.1415" upper="3.1415" effort="10" velocity="1.0"/>
+    </joint>
+    <link name="joint_2_shin">
+        <visual>
+            <geometry>
+                <mesh filename="package://adsmt_description/urdf/designs/shin.stl" scale=" 0.01 0.01 0.01"/>
+
+            </geometry>
+            <collision>
+                <geometry>
+                    <mesh filename="package://adsmt_description/urdf/designs/shin.stl" scale=" 0.01 0.01 0.01"/>
+                </geometry>
+            </collision>
+                <material name = 'u joints 7'>
+                    <color rgba='0 0 0 1'/>
+                </material>
+        </visual>
+    </link>
+    <!-- /Leg 2-->
+
+    <!-- Leg 3 -->
+    <joint name="joint_3" type="revolute">
+        <parent link="body"/>
+        <child link="joint_3_link"/>
+        <origin xyz="0.25 -0.60 0.0" rpy="0 0 1.5708"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="-3.1415" upper="3.1415" effort="10" velocity="1.0"/>
+    </joint>
+    <link name="joint_3_link">
+        <visual>
+            <geometry>
+                <mesh filename="package://adsmt_description/urdf/designs/double_u.stl" scale=" 0.01 0.01 0.01"/>
+
+            </geometry>
+            <collision>
+                <geometry>
+                    <mesh filename="package://adsmt_description/urdf/designs/double_u.stl" scale=" 0.01 0.01 0.01"/>
+                </geometry>
+            </collision>
+             <material name = 'u joints 3'>
+                    <color rgba='0 0 1 1'/>
+                </material>
+        </visual>
+    </link>
+
+    <!-- Thigh 3 -->
+    <joint name="joint_3_1" type="revolute">
+        <parent link="joint_3_link"/>
+        <child link="joint_3_thigh"/>
+        <origin xyz="-0.0 -0.46 0.0" rpy="3.1415 0 0"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-3.1415" upper="3.1415" effort="10" velocity="1.0"/>
+    </joint>
+    <link name="joint_3_thigh">
+        <visual>
+            <geometry>
+                <mesh filename="package://adsmt_description/urdf/designs/thigh.stl" scale=" 0.01 0.01 0.01"/>
+
+            </geometry>
+            <collision>
+                <geometry>
+                    <mesh filename="package://adsmt_description/urdf/designs/thigh.stl" scale=" 0.01 0.01 0.01"/>
+                </geometry>
+            </collision>
+                <material name = 'u joints t'>
+                    <color rgba='1 0 1 1'/>
+                </material>
+        </visual>
+    </link>
+
+
+    <!-- Shin 3 -->
+    <joint name="joint_3_1_1" type="revolute">
+        <parent link="joint_3_thigh"/>
+        <child link="joint_3_shin"/>
+        <origin xyz="-0.0 0.65 0.0" rpy="3.1415 0 0"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-3.1415" upper="3.1415" effort="10" velocity="1.0"/>
+    </joint>
+    <link name="joint_3_shin">
+        <visual>
+            <geometry>
+                <mesh filename="package://adsmt_description/urdf/designs/shin.stl" scale=" 0.01 0.01 0.01"/>
+
+            </geometry>
+            <collision>
+                <geometry>
+                    <mesh filename="package://adsmt_description/urdf/designs/shin.stl" scale=" 0.01 0.01 0.01"/>
+                </geometry>
+            </collision>
+                <material name = 'u joints 7'>
+                    <color rgba='0 0 0 1'/>
+                </material>
+        </visual>
+    </link>
+    <!-- /Leg 3-->
+
+    <!-- Leg 4 -->
+    <joint name="joint_4" type="revolute">
+        <parent link="body"/>
+        <child link="joint_4_link"/>
+        <origin xyz="0.25 0.6 0.0" rpy="0 0 -1.5708"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="-3.1415" upper="3.1415" effort="10" velocity="1.0"/>
+    </joint>
+    <link name="joint_4_link">
+        <visual>
+            <geometry>
+                <mesh filename="package://adsmt_description/urdf/designs/double_u_r.stl" scale=" 0.01 0.01 0.01"/>
+
+            </geometry>
+            <collision>
+                <geometry>
+                    <mesh filename="package://adsmt_description/urdf/designs/double_u_r.stl" scale=" 0.01 0.01 0.01"/>
+                </geometry>
+            </collision>
+            <material name = 'u joints 4'>
+                    <color rgba='0 0 1 1'/>
+                </material>
+        </visual>
+    </link>
+
+    <!-- Thigh 4 -->
+    <joint name="joint_4_1" type="revolute">
+        <parent link="joint_4_link"/>
+        <child link="joint_4_thigh"/>
+        <origin xyz="-0.0 0.46 0.0" rpy="0 0 0"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-3.1415" upper="3.1415" effort="10" velocity="1.0"/>
+    </joint>
+    <link name="joint_4_thigh">
+        <visual>
+            <geometry>
+                <mesh filename="package://adsmt_description/urdf/designs/thigh.stl" scale=" 0.01 0.01 0.01"/>
+
+            </geometry>
+            <collision>
+                <geometry>
+                    <mesh filename="package://adsmt_description/urdf/designs/thigh.stl" scale=" 0.01 0.01 0.01"/>
+                </geometry>
+            </collision>
+                <material name = 'u joints t'>
+                    <color rgba='1 0 1 1'/>
+                </material>
+        </visual>
+    </link>
+
+
+    <!-- Shin 4 -->
+    <joint name="joint_4_1_1" type="revolute">
+        <parent link="joint_4_thigh"/>
+        <child link="joint_4_shin"/>
+        <origin xyz="-0.0 0.65 0.0" rpy="3.1415 0 0"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-3.1415" upper="3.1415" effort="10" velocity="1.0"/>
+    </joint>
+    <link name="joint_4_shin">
+        <visual>
+            <geometry>
+                <mesh filename="package://adsmt_description/urdf/designs/shin.stl" scale=" 0.01 0.01 0.01"/>
+
+            </geometry>
+            <collision>
+                <geometry>
+                    <mesh filename="package://adsmt_description/urdf/designs/shin.stl" scale=" 0.01 0.01 0.01"/>
+                </geometry>
+            </collision>
+                <material name = 'u joints 7'>
+                    <color rgba='0 0 0 1'/>
+                </material>
+        </visual>
+    </link>
+    <!-- /Leg 4 -->
+</robot>
