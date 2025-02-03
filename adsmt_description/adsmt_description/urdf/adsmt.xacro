@@ -1,0 +1,400 @@
+<?xml version="1.0" ?>
+<robot name="ads-mt" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="$(find adsmt_description)/adsmt_description/urdf/adsmt.gazebo" />
+
+    <link name = "base_footprint">
+        <!-- Nth in here -->
+    </link>
+    <joint name = "body_link_joint" type='fixed'>
+        <origin xyz="0 0 0.5" rpy="0 0 0"/>
+        <parent link="base_footprint"/>
+        <child link="body"/>
+    </joint>
+
+    <material name="yellow">
+        <color rgba="1 1 0 1"/>
+    </material>
+
+    <material name="black">
+        <color rgba="0 0 0 1"/>
+    </material>
+
+    <material name="blue">
+        <color rgba="0 0 1 1"/>
+    </material>
+
+    <!-- Base Link -->
+    <link name="body">
+         <inertial>
+            <mass value="0.29"/>
+            <origin xyz="0 0 0.0"/>
+            <inertia ixx="0.00007" ixy="0.0" ixz="0.0" iyy="0.00007" iyz="0.0" izz="0.00007"/>
+        </inertial>
+        <visual>
+            <geometry>
+                <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/body.stl" scale=" 0.01 0.01 0.01"/>
+            </geometry>
+            <material name='black'>
+
+            </material>
+        </visual>
+            <collision>
+               <origin xyz="0 0 0"/>
+               <geometry>
+                  <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/body.stl" scale=" 0.01 0.01 0.01"/>
+               </geometry>
+            </collision>
+
+    </link>
+
+    <!-- Leg 1 -->
+    <!-- Joints and Links -->
+    <joint name="joint_1" type="revolute">
+        <parent link="body"/>
+        <child link="joint_1_link"/>
+        <origin xyz="-0.265 -0.60 0.0" rpy="0 0 -1.5708"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="-3.1415" upper="3.1415" effort="10" velocity="1.0"/>
+    </joint>
+    <link name="joint_1_link">
+        <inertial>
+            <mass value="0.04"/>
+            <origin xyz="0 0 0"/>
+            <inertia ixx="0.000005" ixy="0.0" ixz="0.0" iyy="0.000005" iyz="0.0" izz="0.000005"/>
+        </inertial>
+        <visual>
+            <geometry>
+                <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/double_u.stl" scale=" 0.01 0.01 0.01"/>
+            <material name='yellow'>
+
+            </material>
+            </geometry>
+
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/double_u.stl" scale=" 0.01 0.01 0.01"/>
+
+            </geometry>
+        </collision>
+    </link>
+
+
+    <!-- Thigh 1 -->
+    <joint name="joint_1_1" type="revolute">
+        <parent link="joint_1_link"/>
+        <child link="joint_1_thigh"/>
+        <origin xyz="-0.0 -0.46 0.0" rpy="-1.5708 0 0"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-3.1415" upper="3.1415" effort="10" velocity="1.0"/>
+    </joint>
+    <link name="joint_1_thigh">
+        <inertial>
+            <mass value="0.06"/>
+            <origin xyz="0 0 0"/>
+            <inertia ixx="0.000005" ixy="0.0" ixz="0.0" iyy="0.000005" iyz="0.0" izz="0.000005"/>
+        </inertial>
+        <visual>
+
+            <geometry>
+                <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/thigh.stl" scale=" 0.01 0.01 0.01"/>
+            <material name='black'></material>
+            </geometry>
+        </visual>
+            <collision>
+                <origin xyz="0 0 0"/>
+                <geometry>
+                    <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/thigh.stl" scale=" 0.01 0.01 0.01"/>
+
+                </geometry>
+            </collision>
+    </link>
+
+    <!-- Shin 1 -->
+    <joint name="joint_1_1_1" type="revolute">
+        <parent link="joint_1_thigh"/>
+        <child link="joint_1_shin"/>
+        <origin xyz="-0.0 0.65 0.0" rpy="3.1415 0 0"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-3.1415" upper="3.1415" effort="10" velocity="1.0"/>
+    </joint>
+    <link name="joint_1_shin">
+        <inertial>
+            <mass value="0.06"/>
+            <origin xyz="0 0 0"/>            
+            <inertia ixx="0.000005" ixy="0.0" ixz="0.0" iyy="0.000005" iyz="0.0" izz="0.000005"/>
+
+        </inertial>
+        <visual>
+            <geometry>
+                <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/shin.stl" scale=" 0.01 0.01 0.01"/>
+            <material name='yellow'></material>
+            </geometry>
+
+        </visual>
+            <collision>
+                <geometry>
+                    <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/shin.stl" scale=" 0.01 0.01 0.01"/>
+                </geometry>
+            </collision>
+    </link>
+
+    <!-- /Leg 1 -->
+
+    <!-- Leg 2 -->
+    <joint name="joint_2" type="revolute">
+        <parent link="body"/>
+        <child link="joint_2_link"/>
+        <origin xyz="-0.25 0.6 0.0" rpy="0 0 1.5708"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="-3.1415" upper="3.1415" effort="10" velocity="1.0"/>
+    </joint>
+    <link name="joint_2_link">
+        <inertial>
+            <mass value="0.04"/>
+            <origin xyz="0 0 0"/>    
+            <inertia ixx="0.000005" ixy="0.0" ixz="0.0" iyy="0.000005" iyz="0.0" izz="0.000005"/>
+
+        </inertial>
+        <visual>
+            <geometry>
+                <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/double_u_r.stl" scale=" 0.01 0.01 0.01"/>
+            <material name='yellow'></material>
+            </geometry>
+
+        </visual>
+            <collision>
+                <geometry>
+                    <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/double_u_r.stl" scale=" 0.01 0.01 0.01"/>
+                </geometry>
+            </collision>
+
+    </link>
+
+    <!-- Thigh 2 -->
+    <joint name="joint_2_1" type="revolute">
+        <parent link="joint_2_link"/>
+        <child link="joint_2_thigh"/>
+        <origin xyz="-0.0 0.46 0.0" rpy="-1.5708 0 0"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-3.1415" upper="3.1415" effort="10" velocity="1.0"/>
+    </joint>
+    <link name="joint_2_thigh">
+        <inertial>
+            <mass value="0.06"/>
+            <origin xyz="0 0 0"/>
+            <inertia ixx="0.000005" ixy="0.0" ixz="0.0" iyy="0.000005" iyz="0.0" izz="0.000005"/>
+        </inertial>
+        <visual>
+            <geometry>
+                <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/thigh.stl" scale=" 0.01 0.01 0.01"/>
+            <material name='black'></material>
+            </geometry>
+        </visual>
+            <collision>
+                <geometry>
+                    <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/thigh.stl" scale=" 0.01 0.01 0.01"/>
+                </geometry>
+            </collision>
+    </link>
+
+
+    <!-- Shin 2 -->
+    <joint name="joint_2_1_1" type="revolute">
+        <parent link="joint_2_thigh"/>
+        <child link="joint_2_shin"/>
+        <origin xyz="-0.0 0.65 0.0" rpy="3.1415 0 0"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-3.1415" upper="3.1415" effort="10" velocity="1.0"/>
+    </joint>
+    <link name="joint_2_shin">
+        <inertial>
+            <mass value="0.06"/>
+            <origin xyz="0 0 0"/>
+            <inertia ixx="0.000005" ixy="0.0" ixz="0.0" iyy="0.000005" iyz="0.0" izz="0.000005"/>
+
+        </inertial>
+        <visual>
+            <geometry>
+                <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/shin.stl" scale=" 0.01 0.01 0.01"/>
+            <material name='yellow'></material>
+            </geometry>
+        </visual>
+            <collision>
+                <geometry>
+                    <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/shin.stl" scale=" 0.01 0.01 0.01"/>
+                </geometry>
+            </collision>
+    </link>
+    <!-- /Leg 2-->
+
+    <!-- Leg 3 -->
+    <joint name="joint_3" type="revolute">
+        <parent link="body"/>
+        <child link="joint_3_link"/>
+        <origin xyz="0.25 -0.60 0.0" rpy="0 0 1.5708"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="-3.1415" upper="3.1415" effort="10" velocity="1.0"/>
+    </joint>
+    <link name="joint_3_link">
+        <inertial>
+            <mass value="0.04"/>
+            <origin xyz="0 0 0"/>
+            <inertia ixx="0.000005" ixy="0.0" ixz="0.0" iyy="0.000005" iyz="0.0" izz="0.000005"/>
+        </inertial>
+        <visual>
+            <geometry>
+                <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/double_u.stl" scale=" 0.01 0.01 0.01"/>
+            <material name='yellow'></material>
+            </geometry>
+        </visual>
+            <collision>
+                <geometry>
+                    <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/double_u.stl" scale=" 0.01 0.01 0.01"/>
+                </geometry>
+            </collision>
+
+    </link>
+
+    <!-- Thigh 3 -->
+    <joint name="joint_3_1" type="revolute">
+        <parent link="joint_3_link"/>
+        <child link="joint_3_thigh"/>
+        <origin xyz="-0.0 -0.46 0.0" rpy="-1.5708 0 0"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-3.1415" upper="3.1415" effort="10" velocity="1.0"/>
+    </joint>
+    <link name="joint_3_thigh">
+        <inertial>
+            <mass value="0.06"/>
+            <origin xyz="0 0 0"/>
+            <inertia ixx="0.000005" ixy="0.0" ixz="0.0" iyy="0.000005" iyz="0.0" izz="0.000005"/>
+        </inertial>
+        <visual>
+            <geometry>
+                <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/thigh.stl" scale=" 0.01 0.01 0.01"/>
+            <material name='black'></material>
+            </geometry>
+        </visual>
+            <collision>
+                <geometry>
+                    <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/thigh.stl" scale=" 0.01 0.01 0.01"/>
+                </geometry>
+            </collision>
+    </link>
+
+
+    <!-- Shin 3 -->
+    <joint name="joint_3_1_1" type="revolute">
+        <parent link="joint_3_thigh"/>
+        <child link="joint_3_shin"/>
+        <origin xyz="-0.0 0.65 0.0" rpy="3.1415 0 0"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-3.1415" upper="3.1415" effort="10" velocity="1.0"/>
+    </joint>
+    <link name="joint_3_shin">
+        <inertial>
+            <mass value="0.06"/>
+            <origin xyz="0 0 0"/>
+            <inertia ixx="0.000005" ixy="0.0" ixz="0.0" iyy="0.000005" iyz="0.0" izz="0.000005"/>
+        </inertial>
+        <visual>
+            <geometry>
+                <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/shin.stl" scale=" 0.01 0.01 0.01"/>
+            <material name='yellow'></material>
+            </geometry>
+        </visual>
+            <collision>
+                <geometry>
+                    <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/shin.stl" scale=" 0.01 0.01 0.01"/>
+                </geometry>
+            </collision>
+    </link>
+    <!-- /Leg 3-->
+
+    <!-- Leg 4 -->
+    <joint name="joint_4" type="revolute">
+        <parent link="body"/>
+        <child link="joint_4_link"/>
+        <origin xyz="0.25 0.6 0.0" rpy="0 0 -1.5708"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="-3.1415" upper="3.1415" effort="10" velocity="1.0"/>
+    </joint>
+    <link name="joint_4_link">
+        <inertial>
+            <mass value="0.04"/>
+            <origin xyz="0 0 0"/>
+            <inertia ixx="0.000005" ixy="0.0" ixz="0.0" iyy="0.000005" iyz="0.0" izz="0.000005"/>
+        </inertial>
+        <visual>
+            <geometry>
+                <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/double_u_r.stl" scale=" 0.01 0.01 0.01"/>
+            <material name='yellow'></material>
+            </geometry>
+        </visual>
+            <collision>
+                <geometry>
+                    <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/double_u_r.stl" scale=" 0.01 0.01 0.01"/>
+                </geometry>
+            </collision>
+    </link>
+
+    <!-- Thigh 4 -->
+    <joint name="joint_4_1" type="revolute">
+        <parent link="joint_4_link"/>
+        <child link="joint_4_thigh"/>
+        <origin xyz="-0.0 0.46 0.0" rpy="-1.5708 0 0"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-3.1415" upper="3.1415" effort="10" velocity="1.0"/>
+    </joint>
+    <link name="joint_4_thigh">
+        <inertial>
+            <mass value="0.06"/>
+            <origin xyz="0 0 0"/>
+            <inertia ixx="0.000005" ixy="0.0" ixz="0.0" iyy="0.000005" iyz="0.0" izz="0.000005"/>
+        </inertial>
+        <visual>
+            <geometry>
+                <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/thigh.stl" scale=" 0.01 0.01 0.01"/>
+            <material name='black'></material>
+            </geometry>
+        </visual>
+            <collision>
+                <geometry>
+                    <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/thigh.stl" scale=" 0.01 0.01 0.01"/>
+                </geometry>
+            </collision>
+    </link>
+
+
+    <!-- Shin 4 -->
+    <joint name="joint_4_1_1" type="revolute">
+        <parent link="joint_4_thigh"/>
+        <child link="joint_4_shin"/>
+        <origin xyz="-0.0 0.65 0.0" rpy="3.1415 0 0"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-3.1415" upper="3.1415" effort="10" velocity="1.0"/>
+    </joint>
+    <link name="joint_4_shin">
+        <inertial>
+            <mass value="0.06"/>
+            <origin xyz="0 0 0"/>
+            <inertia ixx="0.000005" ixy="0.0" ixz="0.0" iyy="0.000005" iyz="0.0" izz="0.000005"/>
+        </inertial>
+        <visual>
+            <geometry>
+                <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/shin.stl" scale=" 0.01 0.01 0.01"/>
+            <material name='yellow'></material>
+            </geometry>
+        </visual>
+            <collision>
+                <geometry>
+                    <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/shin.stl" scale=" 0.01 0.01 0.01"/>
+                    <material name='yellow'></material>
+
+                </geometry>
+            </collision>
+    </link>
+    <!-- /Leg 4 -->
+</robot>

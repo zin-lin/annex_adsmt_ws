@@ -1,0 +1,264 @@
+<?xml version="1.0" ?>
+
+<!-- Robot -->
+<robot>
+    <!-- body -->
+    <gazebo reference="body">
+        
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/White</name>
+          </script>
+        </material>
+    </gazebo>
+
+    <!-- Leg 1 -->
+    <gazebo reference="joint_1_link">
+        
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+        </material>
+    </gazebo>
+
+    <gazebo reference="joint_1_thigh">
+        
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Black</name>
+          </script>
+        </material>
+    </gazebo>
+
+    <gazebo reference="joint_1_shin">
+        
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+        </material>
+    </gazebo>
+    <!-- /Leg 1 -->
+
+    <!-- Leg 2 -->
+    <gazebo reference="joint_2_link">
+        
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+        </material>
+    </gazebo>
+
+    <gazebo reference="joint_2_thigh">
+        
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Black</name>
+          </script>
+        </material>
+    </gazebo>
+
+    <gazebo reference="joint_2_shin">
+        
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+        </material>
+    </gazebo>
+    <!-- /Leg 2 -->
+
+    <!-- Leg 3 -->
+    <gazebo reference="joint_3_link">
+        
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+        </material>
+    </gazebo>
+
+    <gazebo reference="joint_3_thigh">
+        
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Black</name>
+          </script>
+        </material>
+    </gazebo>
+
+    <gazebo reference="joint_3_shin">
+        
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+        </material>
+    </gazebo>
+    <!-- /Leg 3 -->
+
+    <!-- Leg 4 -->
+    <gazebo reference="joint_4_link">
+        
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+        </material>
+    </gazebo>
+
+    <gazebo reference="joint_4_thigh">
+        
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Black</name>
+          </script>
+        </material>
+    </gazebo>
+
+    <gazebo reference="joint_4_shin">
+        
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+        </material>
+    </gazebo>
+    <!-- /Leg 4 -->
+
+    <!-- plugins -->
+    <gazebo>
+        <!-- render engine set -->
+        <plugin filename="gz-sim-sensor-system" name="gz::sim::systems::Sensors">
+            <render_engine>ogre2</render_engine>
+        </plugin>
+
+        <!-- Joint State Controller -->
+        <plugin filename='gz-sim-joint-state-publisher-system' name='gz::sim::systems::JointStatePublisher'>
+            <topic>joint_states</topic>
+            <joint_name>joint_1</joint_name>
+            <joint_name>joint_1_1</joint_name>
+            <joint_name>joint_1_1_1</joint_name>
+            <joint_name>joint_2</joint_name>
+            <joint_name>joint_2_1</joint_name>
+            <joint_name>joint_2_1_1</joint_name>
+            <joint_name>joint_3</joint_name>
+            <joint_name>joint_3_1</joint_name>
+            <joint_name>joint_3_1_1</joint_name>
+            <joint_name>joint_4</joint_name>
+            <joint_name>joint_4_1</joint_name>
+            <joint_name>joint_4_1_1</joint_name>
+        </plugin>
+
+        <!-- Joint Position Controller Plugins for Each Legs -->
+        <!-- Leg 1 -->
+        <plugin filename="gz-sim-joint-position-controller-system"
+        name="gz::sim::systems::JointPositionController">
+            <joint_name>joint_1</joint_name>
+            <topic>model/ads-mt/joint/joint_1/0/cmd_pos</topic>
+            <use_velocity_commands>1</use_velocity_commands>
+        </plugin>
+
+        <plugin filename="gz-sim-joint-position-controller-system"
+            name="gz::sim::systems::JointPositionController">
+            <joint_name>joint_1_1</joint_name>
+            <topic>model/ads-mt/joint/joint_1_1/0/cmd_pos</topic>
+            <use_velocity_commands>1</use_velocity_commands>
+
+        </plugin>
+
+        <plugin filename="gz-sim-joint-position-controller-system"
+            name="gz::sim::systems::JointPositionController">
+            <joint_name>joint_1_1_1</joint_name>
+            <topic>model/ads-mt/joint/joint_1_1_1/0/cmd_pos</topic>
+            <use_velocity_commands>1</use_velocity_commands>
+        </plugin>
+        <!-- /Leg 1 -->
+
+        <!-- Leg 2 -->
+        <plugin filename="gz-sim-joint-position-controller-system"
+        name="gz::sim::systems::JointPositionController">
+            <joint_name>joint_2</joint_name>
+            <topic>model/ads-mt/joint/joint_2/0/cmd_pos</topic>
+            <use_velocity_commands>1</use_velocity_commands>
+        </plugin>
+
+        <plugin filename="gz-sim-joint-position-controller-system"
+            name="gz::sim::systems::JointPositionController">
+            <joint_name>joint_2_1</joint_name>
+            <topic>model/ads-mt/joint/joint_2_1/0/cmd_pos</topic>
+            <use_velocity_commands>1</use_velocity_commands>
+        </plugin>
+
+        <plugin filename="gz-sim-joint-position-controller-system"
+            name="gz::sim::systems::JointPositionController">
+            <joint_name>joint_2_1_1</joint_name>
+            <topic>model/ads-mt/joint/joint_2_1_1/0/cmd_pos</topic>
+            <use_velocity_commands>1</use_velocity_commands>
+        </plugin>
+        <!-- /Leg 2 -->
+
+        <!-- Leg 3 -->
+        <plugin filename="gz-sim-joint-position-controller-system"
+        name="gz::sim::systems::JointPositionController">
+            <joint_name>joint_3</joint_name>
+            <topic>model/ads-mt/joint/joint_3/0/cmd_pos</topic>
+            <use_velocity_commands>1</use_velocity_commands>
+        </plugin>
+
+        <plugin filename="gz-sim-joint-position-controller-system"
+            name="gz::sim::systems::JointPositionController">
+            <joint_name>joint_3_1</joint_name>
+            <topic>model/ads-mt/joint/joint_3_1/0/cmd_pos</topic>
+            <use_velocity_commands>1</use_velocity_commands>
+        </plugin>
+
+        <plugin filename="gz-sim-joint-position-controller-system"
+            name="gz::sim::systems::JointPositionController">
+            <joint_name>joint_3_1_1</joint_name>
+            <topic>model/ads-mt/joint/joint_3_1_1/0/cmd_pos</topic>
+            <use_velocity_commands>1</use_velocity_commands>
+        </plugin>
+        <!-- /Leg 3 -->
+
+        <!-- Leg 4 -->
+        <plugin filename="gz-sim-joint-position-controller-system"
+        name="gz::sim::systems::JointPositionController">
+            <joint_name>joint_4</joint_name>
+            <topic>model/ads-mt/joint/joint_4/0/cmd_pos</topic>
+            <use_velocity_commands>1</use_velocity_commands>
+        </plugin>
+
+        <plugin filename="gz-sim-joint-position-controller-system"
+            name="gz::sim::systems::JointPositionController">
+            <joint_name>joint_4_1</joint_name>
+            <topic>model/ads-mt/joint/joint_4_1/0/cmd_pos</topic>
+            <use_velocity_commands>1</use_velocity_commands>
+        </plugin>
+
+        <plugin filename="gz-sim-joint-position-controller-system"
+            name="gz::sim::systems::JointPositionController">
+            <joint_name>joint_4_1_1</joint_name>
+            <topic>model/ads-mt/joint/joint_4_1_1/0/cmd_pos</topic>
+            <use_velocity_commands>1</use_velocity_commands>
+        </plugin>
+        <!-- /Leg 4 -->
+
+    </gazebo>
+    <!-- /plugins -->
+</robot>

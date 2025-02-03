@@ -6,8 +6,13 @@ find_package(ament_cmake REQUIRED)
 
 # Install the URDF and STL files
 install(
-  DIRECTORY urdf/
-  DESTINATION share/${PROJECT_NAME}/urdf
+  DIRECTORY adsmt_description/urdf/
+  DESTINATION share/${PROJECT_NAME}/adsmt_description/urdf
+)
+
+install(
+  DIRECTORY adsmt_description/parameters/
+  DESTINATION share/${PROJECT_NAME}/adsmt_description/parameters
 )
 
 install(

@@ -6,7 +6,7 @@ from launch.substitutions import LaunchConfiguration, Command
 
 def generate_launch_description():
     pkg = get_package_share_directory('adsmt_description')
-    urdf_file = os.path.join(pkg, 'urdf', 'adsmt.urdf')
+    urdf_file = os.path.join(pkg, 'urdf', 'adsmt.xacro')
     config = os.path.join(pkg, 'rviz', 'config.rviz')
 
     # Declare the robot_state_publisher node
