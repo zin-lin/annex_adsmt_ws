@@ -7,21 +7,21 @@
         <!-- Nth in here -->
     </link>
     <joint name = "body_link_joint" type='fixed'>
-        <origin xyz="0 0 0.5" rpy="0 0 0"/>
+        <origin xyz="0 0 1.5" rpy="0 0 0"/>
         <parent link="base_footprint"/>
         <child link="body"/>
     </joint>
 
     <material name="yellow">
-        <color rgba="1 1 0 1"/>
+        <color rgba="1 0.5 0 1"/>
     </material>
 
     <material name="black">
-        <color rgba="0 0 0 1"/>
+        <color rgba="0.02 0.02 0.02 1"/>
     </material>
 
-    <material name="blue">
-        <color rgba="0 0 1 1"/>
+    <material name="grey">
+        <color rgba="0.06 0.06 0.06 1"/>
     </material>
 
     <!-- Base Link -->
@@ -35,9 +35,7 @@
             <geometry>
                 <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/body.stl" scale=" 0.01 0.01 0.01"/>
             </geometry>
-            <material name='black'>
-
-            </material>
+            <material name='grey'/>
         </visual>
             <collision>
                <origin xyz="0 0 0"/>
@@ -66,11 +64,8 @@
         <visual>
             <geometry>
                 <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/double_u.stl" scale=" 0.01 0.01 0.01"/>
-            <material name='yellow'>
-
-            </material>
             </geometry>
-
+            <material name='yellow'/>
         </visual>
         <collision>
             <geometry>
@@ -99,8 +94,8 @@
 
             <geometry>
                 <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/thigh.stl" scale=" 0.01 0.01 0.01"/>
-            <material name='black'></material>
             </geometry>
+            <material name='black'></material>
         </visual>
             <collision>
                 <origin xyz="0 0 0"/>
@@ -129,9 +124,8 @@
         <visual>
             <geometry>
                 <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/shin.stl" scale=" 0.01 0.01 0.01"/>
-            <material name='yellow'></material>
             </geometry>
-
+            <material name='yellow'></material>
         </visual>
             <collision>
                 <geometry>
@@ -160,10 +154,10 @@
         <visual>
             <geometry>
                 <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/double_u_r.stl" scale=" 0.01 0.01 0.01"/>
-            <material name='yellow'></material>
             </geometry>
-
+            <material name='yellow'/>
         </visual>
+
             <collision>
                 <geometry>
                     <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/double_u_r.stl" scale=" 0.01 0.01 0.01"/>
@@ -189,8 +183,8 @@
         <visual>
             <geometry>
                 <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/thigh.stl" scale=" 0.01 0.01 0.01"/>
-            <material name='black'></material>
             </geometry>
+            <material name='black'></material>
         </visual>
             <collision>
                 <geometry>
@@ -218,8 +212,8 @@
         <visual>
             <geometry>
                 <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/shin.stl" scale=" 0.01 0.01 0.01"/>
-            <material name='yellow'></material>
             </geometry>
+            <material name='yellow'></material>
         </visual>
             <collision>
                 <geometry>
@@ -246,8 +240,8 @@
         <visual>
             <geometry>
                 <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/double_u.stl" scale=" 0.01 0.01 0.01"/>
-            <material name='yellow'></material>
             </geometry>
+            <material name='yellow'></material>
         </visual>
             <collision>
                 <geometry>
@@ -274,8 +268,8 @@
         <visual>
             <geometry>
                 <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/thigh.stl" scale=" 0.01 0.01 0.01"/>
-            <material name='black'></material>
             </geometry>
+            <material name='black'></material>
         </visual>
             <collision>
                 <geometry>
@@ -302,8 +296,8 @@
         <visual>
             <geometry>
                 <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/shin.stl" scale=" 0.01 0.01 0.01"/>
-            <material name='yellow'></material>
             </geometry>
+            <material name='yellow'></material>
         </visual>
             <collision>
                 <geometry>
@@ -330,8 +324,8 @@
         <visual>
             <geometry>
                 <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/double_u_r.stl" scale=" 0.01 0.01 0.01"/>
-            <material name='yellow'></material>
             </geometry>
+            <material name='yellow'></material>
         </visual>
             <collision>
                 <geometry>
@@ -357,8 +351,8 @@
         <visual>
             <geometry>
                 <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/thigh.stl" scale=" 0.01 0.01 0.01"/>
-            <material name='black'></material>
             </geometry>
+            <material name='black'></material>
         </visual>
             <collision>
                 <geometry>
@@ -385,8 +379,8 @@
         <visual>
             <geometry>
                 <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/shin.stl" scale=" 0.01 0.01 0.01"/>
-            <material name='yellow'></material>
             </geometry>
+            <material name='yellow'></material>
         </visual>
             <collision>
                 <geometry>
