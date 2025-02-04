@@ -1,0 +1,77 @@
+# Author: Zin Lin Htun
+
+name: ROS Jazzy Container Deployment Pipeline
+
+on:
+  push:
+    branches:
+      - master
+      - 5-create-workflow-for-adsmt
+  pull_request:
+    branches:
+      - master
+      - 5-create-workflow-for-adsmt
+
+jobs:
+  # ====== STAGE 1: CHECKOUT CODE ======
+  # must do to get submodules
+  checkout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive  # Pulls all submodules
+
+      - name: Upload repo as artifact (for later jobs)
+        uses: actions/upload-artifact@v4
+        with:
+          name: repo-code
+          path: ./
+
+  # ====== STAGE 2: BUILD DOCKER IMAGE ======
+  docker-build:
+    needs: checkout
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download repo artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: repo-code
+          path: ./
+
+      - name: Set up Docker Build
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build Docker Image
+        run: |
+          docker build -t ads-mt-vital-systems .
+
+      - name: Save Docker image for later use
+        run: |
+          docker save ads-mt-vital-systems -o ads-mt-vital-systems.tar
+
+      - name: Upload Docker image as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: docker-image
+          path: ads-mt-vital-systems.tar
+
+  # ====== STAGE 3: RUN CONTAINER ======
+  containerized-run:
+    needs: docker-build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Docker image artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: docker-image
+          path: ./
+
+      - name: Load Docker Image
+        run: |
+          docker load -i ads-mt-vital-systems.tar
+
+      - name: Run ROS Jazzy inside container
+        run: |
+          docker run --rm ads-mt-vital-systems
