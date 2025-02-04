@@ -24,7 +24,7 @@ jobs:
           submodules: recursive  # Pulls all submodules
 
       - name: Upload repo as artifact (for later jobs)
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: repo-code
           path: ./
