@@ -3,6 +3,7 @@ from rclpy.node import Node
 from annex_msgs.msg import Vcu2ai, Ai2vcu
 from sensor_msgs.msg import JointState
 
+
 JOINTS = ['joint_1', 'joint_1_1','joint_1_1_1', 'joint_2','joint_2_1', 'joint_2_1_1',
 'joint_3', 'joint_3_1','joint_3_1_1', 'joint_4','joint_4_1', 'joint_4_1_1'
           ]
