@@ -1,5 +1,5 @@
 # ADS-MT Project Robotic Workspace
-
+![ADS-MT](docs/showcase/adsmt.png)
 - This project is to demonstrate proficiency in 
 	- `Python` 
 	- `OOP`

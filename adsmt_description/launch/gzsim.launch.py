@@ -17,7 +17,9 @@ import xacro
 
 PKG_SRC = 'adsmt_description'
 MODELS_SRC = 'urdf'
+WORLDS_SRC = 'worlds'
 ROBOT = 'adsmt.xacro'
+CONES_TEST_WORLD = 'cones_test.sdf'
 
 def generate_launch_description():
     robot_name = "ads-mt"
@@ -26,12 +28,15 @@ def generate_launch_description():
     # full file path
     robot_file = os.path.join(get_package_share_directory(name_package), PKG_SRC, MODELS_SRC, ROBOT)
 
+    # full world paths
+    cones_test_world = os.path.join(get_package_share_directory(name_package), WORLDS_SRC, CONES_TEST_WORLD)
+
     # gazebo launcher
     gazebo_ros_launch = PythonLaunchDescriptionSource(os.path.join(get_package_share_directory('ros_gz_sim'),
                                                                    'launch',  'gz_sim.launch.py'))
     # gazebo launch empty world
     gazebo_launch_des = IncludeLaunchDescription(gazebo_ros_launch,
-                                                 launch_arguments={'gz_args':['-r -v -v4 empty.sdf'],
+                                                 launch_arguments={'gz_args':[f'-r -v -v4 {cones_test_world}'],
                                                                    'on_exit_shutdown':'true'}.items())
     robot_xml = xacro.process_file(robot_file).toxml()
     # gazebo node

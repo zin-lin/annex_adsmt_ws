@@ -2,7 +2,6 @@ import os
 import launch
 import launch_ros.actions
 from ament_index_python.packages import get_package_share_directory
-from launch.substitutions import LaunchConfiguration, Command
 
 def generate_launch_description():
     pkg = get_package_share_directory('adsmt_description')

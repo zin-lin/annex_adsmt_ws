@@ -1,0 +1,1480 @@
+<sdf version='1.10'>
+  <world name='empty'>
+    <physics name='1ms' type='ignored'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <plugin name='gz::sim::systems::Physics' filename='gz-sim-physics-system'/>
+    <plugin name='gz::sim::systems::UserCommands' filename='gz-sim-user-commands-system'/>
+    <plugin name='gz::sim::systems::SceneBroadcaster' filename='gz-sim-scene-broadcaster-system'/>
+    <plugin name='gz::sim::systems::Contact' filename='gz-sim-contact-system'/>
+    <gravity>0 0 -9.8000000000000007</gravity>
+    <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <scene>
+      <ambient>0.400000006 0.400000006 0.400000006 1</ambient>
+      <background>0.109999985 0.109999985 0.109999985 1</background>
+      <shadows>true</shadows>
+    </scene>
+    <model name='ground_plane'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.400000012 0.400000012 0.400000012 1</ambient>
+            <diffuse>0.180 0.204 0.275   1</diffuse>
+            <specular>1.20000001e-08 1.20000001e-08 1.20000001e-08 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0 0 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='ads-mt'>
+      <link name='base_footprint'>
+        <inertial>
+          <pose>0 0 1.5 0 0 0</pose>
+          <mass>0.28999999999999998</mass>
+          <inertia>
+            <ixx>7.0000000000014495e-05</ixx>
+            <ixy>8.2718061255302767e-25</ixy>
+            <ixz>0</ixz>
+            <iyy>7.0000000000014495e-05</iyy>
+            <iyz>0</iyz>
+            <izz>6.9999999999999994e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='base_footprint_fixed_joint_lump__body_collision'>
+          <pose>0 0 1.5 0 0 3.1415000000000002</pose>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>file:///home/zin-lin-htun/devs/annex_adsmt_ws/install/adsmt_description/share/adsmt_description/adsmt_description/urdf/designs/body.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='base_footprint_fixed_joint_lump__body_visual'>
+          <pose>0 0 1.5 0 0 3.1415000000000002</pose>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>file:///home/zin-lin-htun/devs/annex_adsmt_ws/install/adsmt_description/share/adsmt_description/adsmt_description/urdf/designs/body.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.0749999955 0.0749999955 0.0749999955 1</diffuse>
+            <ambient>0.0749999955 0.0749999955 0.0749999955 1</ambient>
+          </material>
+        </visual>
+        <sensor name='camera_sensor' type='depth_camera'>
+          <pose>0.12 -1.11184e-05 1.0700000000000001 1.0238020702055741e-20 0.12000000000000008 0.000314693</pose>
+          <topic>perception</topic>
+          <update_rate>25</update_rate>
+          <enable_metrics>true</enable_metrics>
+          <camera name='__default__'>
+            <pose>0 0 0 0 0 0</pose>
+            <horizontal_fov>1.45</horizontal_fov>
+            <image>
+              <width>1620</width>
+              <height>600</height>
+              <format>R_FLOAT32</format>
+              <anti_aliasing>4</anti_aliasing>
+            </image>
+            <camera_info_topic>__default__</camera_info_topic>
+            <trigger_topic></trigger_topic>
+            <triggered>false</triggered>
+            <clip>
+              <near>0.10000000000000001</near>
+              <far>10</far>
+            </clip>
+            <save enabled='false'>
+              <path>__default__</path>
+            </save>
+            <visibility_mask>4294967295</visibility_mask>
+            <noise>
+              <type>none</type>
+              <mean>0</mean>
+              <stddev>0</stddev>
+            </noise>
+            <distortion>
+              <k1>0</k1>
+              <k2>0</k2>
+              <k3>0</k3>
+              <p1>0</p1>
+              <p2>0</p2>
+              <center>0.5 0.5</center>
+            </distortion>
+            <lens>
+              <type>stereographic</type>
+              <scale_to_hfov>true</scale_to_hfov>
+              <cutoff_angle>1.5707963267948966</cutoff_angle>
+              <env_texture_size>256</env_texture_size>
+            </lens>
+            <optical_frame_id></optical_frame_id>
+          </camera>
+        </sensor>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='joint_1' type='revolute'>
+        <pose>-1.1102230246251565e-16 -1.1102230246251565e-16 0 -2.6469779601696886e-23 5.2939559203393771e-23 -7.0064923216240854e-46</pose>
+        <parent>base_footprint</parent>
+        <child>joint_1_link</child>
+        <axis>
+          <xyz>5.2939559203393771e-23 0 1</xyz>
+          <limit>
+            <lower>-3.1415000000000002</lower>
+            <upper>3.1415000000000002</upper>
+            <effort>10</effort>
+            <velocity>1</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='joint_1_link'>
+        <pose>0.2650554316498368 0.59997620883251579 1.5000000241919653 -1.1426731279439396e-07 5.4817574941188609e-07 1.5707000000262998</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.040000000000000001</mass>
+          <inertia>
+            <ixx>5.0000000000000004e-06</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>5.0000000000000004e-06</iyy>
+            <iyz>0</iyz>
+            <izz>5.0000000000000004e-06</izz>
+          </inertia>
+        </inertial>
+        <collision name='joint_1_link_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>file:///home/zin-lin-htun/devs/annex_adsmt_ws/install/adsmt_description/share/adsmt_description/adsmt_description/urdf/designs/double_u.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='joint_1_link_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>file:///home/zin-lin-htun/devs/annex_adsmt_ws/install/adsmt_description/share/adsmt_description/adsmt_description/urdf/designs/double_u.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 0.625 0 1</diffuse>
+            <ambient>1 0.625 0 1</ambient>
+          </material>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='joint_1_1' type='revolute'>
+        <pose>1.1102230246251565e-16 -2.2204460492503131e-16 -6.6613381477509392e-16 0 0 0</pose>
+        <parent>joint_1_link</parent>
+        <child>joint_1_thigh</child>
+        <axis>
+          <xyz>1 0 5.5511151231257821e-17</xyz>
+          <limit>
+            <lower>-3.1415000000000002</lower>
+            <upper>3.1415000000000002</upper>
+            <effort>10</effort>
+            <velocity>1</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='joint_1_thigh'>
+        <pose>0.72505550883560554 0.59993151812175693 1.5000000385712513 -1.5708000574086816 2.7546541719880929e-07 1.5707000000019105</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.059999999999999998</mass>
+          <inertia>
+            <ixx>5.0000000000000004e-06</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>5.0000000000000004e-06</iyy>
+            <iyz>0</iyz>
+            <izz>5.0000000000000004e-06</izz>
+          </inertia>
+        </inertial>
+        <collision name='joint_1_thigh_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>file:///home/zin-lin-htun/devs/annex_adsmt_ws/install/adsmt_description/share/adsmt_description/adsmt_description/urdf/designs/thigh.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='joint_1_thigh_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>file:///home/zin-lin-htun/devs/annex_adsmt_ws/install/adsmt_description/share/adsmt_description/adsmt_description/urdf/designs/thigh.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.0250000004 0.0250000004 0.0250000004 1</diffuse>
+            <ambient>0.0250000004 0.0250000004 0.0250000004 1</ambient>
+          </material>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='joint_1_1_1' type='revolute'>
+        <pose>-2.2204460492503131e-16 3.3306690738754696e-16 -1.1102230246251565e-16 0 -5.5511151231257839e-17 0</pose>
+        <parent>joint_1_thigh</parent>
+        <child>joint_1_shin</child>
+        <axis>
+          <xyz>1 0 -1.2325951644078309e-32</xyz>
+          <limit>
+            <lower>-3.1415000000000002</lower>
+            <upper>3.1415000000000002</upper>
+            <effort>10</effort>
+            <velocity>1</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='joint_1_shin'>
+        <pose>0.72505793371729388 0.59993133883565641 0.85000003857579953 1.5706999426063921 2.7546541631063087e-07 1.5707000000018747</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.059999999999999998</mass>
+          <inertia>
+            <ixx>5.0000000000000004e-06</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>5.0000000000000004e-06</iyy>
+            <iyz>0</iyz>
+            <izz>5.0000000000000004e-06</izz>
+          </inertia>
+        </inertial>
+        <collision name='joint_1_shin_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>file:///home/zin-lin-htun/devs/annex_adsmt_ws/install/adsmt_description/share/adsmt_description/adsmt_description/urdf/designs/shin.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='joint_1_shin_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>file:///home/zin-lin-htun/devs/annex_adsmt_ws/install/adsmt_description/share/adsmt_description/adsmt_description/urdf/designs/shin.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 0.625 0 1</diffuse>
+            <ambient>1 0.625 0 1</ambient>
+          </material>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='joint_2' type='revolute'>
+        <pose>2.2204460492503131e-16 3.0531133177191805e-16 1.1102230246251565e-15 0 -7.9409338805090657e-23 0</pose>
+        <parent>base_footprint</parent>
+        <child>joint_2_link</child>
+        <axis>
+          <xyz>-1.0587911840678754e-22 0 1</xyz>
+          <limit>
+            <lower>-3.1415000000000002</lower>
+            <upper>3.1415000000000002</upper>
+            <effort>10</effort>
+            <velocity>1</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='joint_2_link'>
+        <pose>0.24994424743814861 -0.60002239621308562 1.500000680289391 1.1426328634142253e-07 -5.4817659274030394e-07 -1.5708853071533402</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.040000000000000001</mass>
+          <inertia>
+            <ixx>5.0000000000000004e-06</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>5.0000000000000004e-06</iyy>
+            <iyz>0</iyz>
+            <izz>5.0000000000000004e-06</izz>
+          </inertia>
+        </inertial>
+        <collision name='joint_2_link_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>file:///home/zin-lin-htun/devs/annex_adsmt_ws/install/adsmt_description/share/adsmt_description/adsmt_description/urdf/designs/double_u_r.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='joint_2_link_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>file:///home/zin-lin-htun/devs/annex_adsmt_ws/install/adsmt_description/share/adsmt_description/adsmt_description/urdf/designs/double_u_r.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 0.625 0 1</diffuse>
+            <ambient>1 0.625 0 1</ambient>
+          </material>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='joint_2_1' type='revolute'>
+        <pose>0 -2.2204460492503131e-16 -3.3306690738754696e-16 -3.0814879110195774e-33 1.1102230246251565e-16 -5.5511151231257827e-17</pose>
+        <parent>joint_2_link</parent>
+        <child>joint_2_thigh</child>
+        <axis>
+          <xyz>1 0 6.8422776578360209e-49</xyz>
+          <limit>
+            <lower>-3.1415000000000002</lower>
+            <upper>3.1415000000000002</upper>
+            <effort>10</effort>
+            <velocity>1</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='joint_2_thigh'>
+        <pose>0.70994424561714076 -0.60006332717786026 1.5000007328505016 -1.5707998857366865 -5.4817659339570468e-07 -1.5708853071533579</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.059999999999999998</mass>
+          <inertia>
+            <ixx>5.0000000000000004e-06</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>5.0000000000000004e-06</iyy>
+            <iyz>0</iyz>
+            <izz>5.0000000000000004e-06</izz>
+          </inertia>
+        </inertial>
+        <collision name='joint_2_thigh_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>file:///home/zin-lin-htun/devs/annex_adsmt_ws/install/adsmt_description/share/adsmt_description/adsmt_description/urdf/designs/thigh.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='joint_2_thigh_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>file:///home/zin-lin-htun/devs/annex_adsmt_ws/install/adsmt_description/share/adsmt_description/adsmt_description/urdf/designs/thigh.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.0250000004 0.0250000004 0.0250000004 1</diffuse>
+            <ambient>0.0250000004 0.0250000004 0.0250000004 1</ambient>
+          </material>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='joint_2_1_1' type='revolute'>
+        <pose>-3.3306690738754696e-16 1.9984014443252818e-15 -2.7755575615628914e-15 0 0 0</pose>
+        <parent>joint_2_thigh</parent>
+        <child>joint_2_shin</child>
+        <axis>
+          <xyz>1 0 5.5511151231257821e-17</xyz>
+          <limit>
+            <lower>-3.1415000000000002</lower>
+            <upper>3.1415000000000002</upper>
+            <effort>10</effort>
+            <velocity>1</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='joint_2_shin'>
+        <pose>0.70994201735518958 -0.60006409160128082 0.85000000000530629 1.5707000001167786 -1.2794765247292617e-12 -1.5708853072020479</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.059999999999999998</mass>
+          <inertia>
+            <ixx>5.0000000000000004e-06</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>5.0000000000000004e-06</iyy>
+            <iyz>0</iyz>
+            <izz>5.0000000000000004e-06</izz>
+          </inertia>
+        </inertial>
+        <collision name='joint_2_shin_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>file:///home/zin-lin-htun/devs/annex_adsmt_ws/install/adsmt_description/share/adsmt_description/adsmt_description/urdf/designs/shin.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='joint_2_shin_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>file:///home/zin-lin-htun/devs/annex_adsmt_ws/install/adsmt_description/share/adsmt_description/adsmt_description/urdf/designs/shin.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 0.625 0 1</diffuse>
+            <ambient>1 0.625 0 1</ambient>
+          </material>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='joint_3' type='revolute'>
+        <pose>-1.1102230246251565e-16 -1.3877787807814457e-16 8.8817841970012523e-16 0 0 0</pose>
+        <parent>base_footprint</parent>
+        <child>joint_3_link</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-3.1415000000000002</lower>
+            <upper>3.1415000000000002</upper>
+            <effort>10</effort>
+            <velocity>1</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='joint_3_link'>
+        <pose>-0.24994456613962154 0.60002392541763105 1.4999999653453369 1.142632863413857e-07 -5.4817659274030997e-07 -1.5708853071532884</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.040000000000000001</mass>
+          <inertia>
+            <ixx>5.0000000000000004e-06</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>5.0000000000000004e-06</iyy>
+            <iyz>0</iyz>
+            <izz>5.0000000000000004e-06</izz>
+          </inertia>
+        </inertial>
+        <collision name='joint_3_link_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>file:///home/zin-lin-htun/devs/annex_adsmt_ws/install/adsmt_description/share/adsmt_description/adsmt_description/urdf/designs/double_u.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='joint_3_link_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>file:///home/zin-lin-htun/devs/annex_adsmt_ws/install/adsmt_description/share/adsmt_description/adsmt_description/urdf/designs/double_u.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 0.625 0 1</diffuse>
+            <ambient>1 0.625 0 1</ambient>
+          </material>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='joint_3_1' type='revolute'>
+        <pose>-1.1102230246251565e-16 -1.7763568394002505e-15 -1.1102230246251565e-15 0 0 -5.5511151231257827e-17</pose>
+        <parent>joint_3_link</parent>
+        <child>joint_3_thigh</child>
+        <axis>
+          <xyz>1 0 1.1102230246251565e-16</xyz>
+          <limit>
+            <lower>-3.1415000000000002</lower>
+            <upper>3.1415000000000002</upper>
+            <effort>10</effort>
+            <velocity>1</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='joint_3_thigh'>
+        <pose>-0.70994456431861086 0.60006485638238227 1.4999999127842263 -1.570799885736462 -5.4817659195241475e-07 -1.5708853071533064</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.059999999999999998</mass>
+          <inertia>
+            <ixx>5.0000000000000004e-06</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>5.0000000000000004e-06</iyy>
+            <iyz>0</iyz>
+            <izz>5.0000000000000004e-06</izz>
+          </inertia>
+        </inertial>
+        <collision name='joint_3_thigh_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>file:///home/zin-lin-htun/devs/annex_adsmt_ws/install/adsmt_description/share/adsmt_description/adsmt_description/urdf/designs/thigh.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='joint_3_thigh_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>file:///home/zin-lin-htun/devs/annex_adsmt_ws/install/adsmt_description/share/adsmt_description/adsmt_description/urdf/designs/thigh.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.0250000004 0.0250000004 0.0250000004 1</diffuse>
+            <ambient>0.0250000004 0.0250000004 0.0250000004 1</ambient>
+          </material>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='joint_3_1_1' type='revolute'>
+        <pose>2.2204460492503131e-16 2.2204460492503131e-16 -2.2204460492503131e-16 0 -5.5511151231257827e-17 0</pose>
+        <parent>joint_3_thigh</parent>
+        <child>joint_3_shin</child>
+        <axis>
+          <xyz>1 0 5.5511151231257827e-17</xyz>
+          <limit>
+            <lower>-3.1415000000000002</lower>
+            <upper>3.1415000000000002</upper>
+            <effort>10</effort>
+            <velocity>1</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='joint_3_shin'>
+        <pose>-0.70994687766230513 0.6000645002734396 0.84999991278844034 1.5707001149034547 -5.4817659811415254e-07 -1.5708853071533371</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.059999999999999998</mass>
+          <inertia>
+            <ixx>5.0000000000000004e-06</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>5.0000000000000004e-06</iyy>
+            <iyz>0</iyz>
+            <izz>5.0000000000000004e-06</izz>
+          </inertia>
+        </inertial>
+        <collision name='joint_3_shin_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>file:///home/zin-lin-htun/devs/annex_adsmt_ws/install/adsmt_description/share/adsmt_description/adsmt_description/urdf/designs/shin.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='joint_3_shin_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>file:///home/zin-lin-htun/devs/annex_adsmt_ws/install/adsmt_description/share/adsmt_description/adsmt_description/urdf/designs/shin.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 0.625 0 1</diffuse>
+            <ambient>1 0.625 0 1</ambient>
+          </material>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='joint_4' type='revolute'>
+        <pose>0 1.1102230246251565e-16 2.2204460492503131e-16 0 0 0</pose>
+        <parent>base_footprint</parent>
+        <child>joint_4_link</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-3.1415000000000002</lower>
+            <upper>3.1415000000000002</upper>
+            <effort>10</effort>
+            <velocity>1</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='joint_4_link'>
+        <pose>-0.25005575041569456 -0.59997606943142046 1.5000006231567429 -1.1426731279438391e-07 5.4817574941187963e-07 1.570700000026293</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.040000000000000001</mass>
+          <inertia>
+            <ixx>5.0000000000000004e-06</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>5.0000000000000004e-06</iyy>
+            <iyz>0</iyz>
+            <izz>5.0000000000000004e-06</izz>
+          </inertia>
+        </inertial>
+        <collision name='joint_4_link_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>file:///home/zin-lin-htun/devs/annex_adsmt_ws/install/adsmt_description/share/adsmt_description/adsmt_description/urdf/designs/double_u_r.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='joint_4_link_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>file:///home/zin-lin-htun/devs/annex_adsmt_ws/install/adsmt_description/share/adsmt_description/adsmt_description/urdf/designs/double_u_r.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 0.625 0 1</diffuse>
+            <ambient>1 0.625 0 1</ambient>
+          </material>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='joint_4_1' type='revolute'>
+        <pose>0 -2.2204460492503131e-16 1.1102230246251565e-16 0 0 0</pose>
+        <parent>joint_4_link</parent>
+        <child>joint_4_thigh</child>
+        <axis>
+          <xyz>1 0 5.5511151231257821e-17</xyz>
+          <limit>
+            <lower>-3.1415000000000002</lower>
+            <upper>3.1415000000000002</upper>
+            <effort>10</effort>
+            <velocity>1</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='joint_4_thigh'>
+        <pose>-0.71005574828157447 -0.59993175911793373 1.5000005705937798 -1.5708001142673107 5.4817575312340849e-07 1.5707000000262061</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.059999999999999998</mass>
+          <inertia>
+            <ixx>5.0000000000000004e-06</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>5.0000000000000004e-06</iyy>
+            <iyz>0</iyz>
+            <izz>5.0000000000000004e-06</izz>
+          </inertia>
+        </inertial>
+        <collision name='joint_4_thigh_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>file:///home/zin-lin-htun/devs/annex_adsmt_ws/install/adsmt_description/share/adsmt_description/adsmt_description/urdf/designs/thigh.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='joint_4_thigh_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>file:///home/zin-lin-htun/devs/annex_adsmt_ws/install/adsmt_description/share/adsmt_description/adsmt_description/urdf/designs/thigh.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.0250000004 0.0250000004 0.0250000004 1</diffuse>
+            <ambient>0.0250000004 0.0250000004 0.0250000004 1</ambient>
+          </material>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='joint_4_1_1' type='revolute'>
+        <pose>-2.2204460492503131e-16 5.5511151231257827e-16 -2.2204460492503131e-16 0 -5.5511151231257827e-17 0</pose>
+        <parent>joint_4_thigh</parent>
+        <child>joint_4_shin</child>
+        <axis>
+          <xyz>1 0 5.5511151231257827e-17</xyz>
+          <limit>
+            <lower>-3.1415000000000002</lower>
+            <upper>3.1415000000000002</upper>
+            <effort>10</effort>
+            <velocity>1</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='joint_4_shin'>
+        <pose>-0.71005320137690298 -0.59993252391460739 0.85000000000499232 1.5706999999997806 1.2778111901923239e-12 1.5706999999775122</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.059999999999999998</mass>
+          <inertia>
+            <ixx>5.0000000000000004e-06</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>5.0000000000000004e-06</iyy>
+            <iyz>0</iyz>
+            <izz>5.0000000000000004e-06</izz>
+          </inertia>
+        </inertial>
+        <collision name='joint_4_shin_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>file:///home/zin-lin-htun/devs/annex_adsmt_ws/install/adsmt_description/share/adsmt_description/adsmt_description/urdf/designs/shin.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='joint_4_shin_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>file:///home/zin-lin-htun/devs/annex_adsmt_ws/install/adsmt_description/share/adsmt_description/adsmt_description/urdf/designs/shin.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 0.625 0 1</diffuse>
+            <ambient>1 0.625 0 1</ambient>
+          </material>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <plugin name='gz::sim::systems::Sensors' filename='gz-sim-sensors-system'>
+        <render_engine>ogre2</render_engine>
+      </plugin>
+      <plugin name='gz::sim::systems::SceneBroadcaster' filename='gz-sim-scene-broadcaster-system'/>
+      <plugin name='gz::sim::systems::JointStatePublisher' filename='gz-sim-joint-state-publisher-system'>
+        <topic>joint_states</topic>
+        <joint_name>joint_1</joint_name>
+        <joint_name>joint_1_1</joint_name>
+        <joint_name>joint_1_1_1</joint_name>
+        <joint_name>joint_2</joint_name>
+        <joint_name>joint_2_1</joint_name>
+        <joint_name>joint_2_1_1</joint_name>
+        <joint_name>joint_3</joint_name>
+        <joint_name>joint_3_1</joint_name>
+        <joint_name>joint_3_1_1</joint_name>
+        <joint_name>joint_4</joint_name>
+        <joint_name>joint_4_1</joint_name>
+        <joint_name>joint_4_1_1</joint_name>
+      </plugin>
+      <plugin name='gz::sim::systems::JointPositionController' filename='gz-sim-joint-position-controller-system'>
+        <joint_name>joint_1</joint_name>
+        <topic>model/ads-mt/joint/joint_1/0/cmd_pos</topic>
+        <use_velocity_commands>1</use_velocity_commands>
+      </plugin>
+      <plugin name='gz::sim::systems::JointPositionController' filename='gz-sim-joint-position-controller-system'>
+        <joint_name>joint_1_1</joint_name>
+        <topic>model/ads-mt/joint/joint_1_1/0/cmd_pos</topic>
+        <use_velocity_commands>1</use_velocity_commands>
+      </plugin>
+      <plugin name='gz::sim::systems::JointPositionController' filename='gz-sim-joint-position-controller-system'>
+        <joint_name>joint_1_1_1</joint_name>
+        <topic>model/ads-mt/joint/joint_1_1_1/0/cmd_pos</topic>
+        <use_velocity_commands>1</use_velocity_commands>
+      </plugin>
+      <plugin name='gz::sim::systems::JointPositionController' filename='gz-sim-joint-position-controller-system'>
+        <joint_name>joint_2</joint_name>
+        <topic>model/ads-mt/joint/joint_2/0/cmd_pos</topic>
+        <use_velocity_commands>1</use_velocity_commands>
+      </plugin>
+      <plugin name='gz::sim::systems::JointPositionController' filename='gz-sim-joint-position-controller-system'>
+        <joint_name>joint_2_1</joint_name>
+        <topic>model/ads-mt/joint/joint_2_1/0/cmd_pos</topic>
+        <use_velocity_commands>1</use_velocity_commands>
+      </plugin>
+      <plugin name='gz::sim::systems::JointPositionController' filename='gz-sim-joint-position-controller-system'>
+        <joint_name>joint_2_1_1</joint_name>
+        <topic>model/ads-mt/joint/joint_2_1_1/0/cmd_pos</topic>
+        <use_velocity_commands>1</use_velocity_commands>
+      </plugin>
+      <plugin name='gz::sim::systems::JointPositionController' filename='gz-sim-joint-position-controller-system'>
+        <joint_name>joint_3</joint_name>
+        <topic>model/ads-mt/joint/joint_3/0/cmd_pos</topic>
+        <use_velocity_commands>1</use_velocity_commands>
+      </plugin>
+      <plugin name='gz::sim::systems::JointPositionController' filename='gz-sim-joint-position-controller-system'>
+        <joint_name>joint_3_1</joint_name>
+        <topic>model/ads-mt/joint/joint_3_1/0/cmd_pos</topic>
+        <use_velocity_commands>1</use_velocity_commands>
+      </plugin>
+      <plugin name='gz::sim::systems::JointPositionController' filename='gz-sim-joint-position-controller-system'>
+        <joint_name>joint_3_1_1</joint_name>
+        <topic>model/ads-mt/joint/joint_3_1_1/0/cmd_pos</topic>
+        <use_velocity_commands>1</use_velocity_commands>
+      </plugin>
+      <plugin name='gz::sim::systems::JointPositionController' filename='gz-sim-joint-position-controller-system'>
+        <joint_name>joint_4</joint_name>
+        <topic>model/ads-mt/joint/joint_4/0/cmd_pos</topic>
+        <use_velocity_commands>1</use_velocity_commands>
+      </plugin>
+      <plugin name='gz::sim::systems::JointPositionController' filename='gz-sim-joint-position-controller-system'>
+        <joint_name>joint_4_1</joint_name>
+        <topic>model/ads-mt/joint/joint_4_1/0/cmd_pos</topic>
+        <use_velocity_commands>1</use_velocity_commands>
+      </plugin>
+      <plugin name='gz::sim::systems::JointPositionController' filename='gz-sim-joint-position-controller-system'>
+        <joint_name>joint_4_1_1</joint_name>
+        <topic>model/ads-mt/joint/joint_4_1_1/0/cmd_pos</topic>
+        <use_velocity_commands>1</use_velocity_commands>
+      </plugin>
+      <frame name='body_link_joint' attached_to='base_footprint'>
+        <pose>0 0 1.5 0 0 3.1415000000000002</pose>
+      </frame>
+      <frame name='body' attached_to='body_link_joint'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <pose>-0.0061484613788076875 0.001043936318254756 -0.10523733485448215 3.0770402346535102e-05 5.4231911693955971e-06 0.0016197651983412221</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='cone'>
+      <pose>4.5760952302493845 2.0758137854062748 0.49999999990833094 7.2126756168889741e-12 -9.1192070477514132e-10 4.7487665493544352e-17</pose>
+      <link name='cone_link'>
+        <inertial>
+          <inertia>
+            <ixx>0.074999999999999997</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.074999999999999997</iyy>
+            <iyz>0</iyz>
+            <izz>0.074999999999999997</izz>
+          </inertia>
+          <mass>1</mass>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <collision name='cone_collision'>
+          <geometry>
+            <cone>
+              <radius>0.5</radius>
+              <length>1</length>
+            </cone>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='cone_visual'>
+          <geometry>
+            <cone>
+              <radius>0.5</radius>
+              <length>1</length>
+            </cone>
+          </geometry>
+          <material>
+            <ambient>0.300000012 0.300000012 0.300000012 1</ambient>
+            <diffuse>0.699999988 0.699999988 0.699999988 1</diffuse>
+            <specular>1 1 1 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='cone_0'>
+      <pose>4.5760951342782832 -2.3977765341100077 0.49999999990833094 7.2126756114502567e-12 -9.1192070473802541e-10 4.7486063639950085e-17</pose>
+      <link name='cone_link'>
+        <inertial>
+          <inertia>
+            <ixx>0.074999999999999997</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.074999999999999997</iyy>
+            <iyz>0</iyz>
+            <izz>0.074999999999999997</izz>
+          </inertia>
+          <mass>1</mass>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <collision name='cone_collision'>
+          <geometry>
+            <cone>
+              <radius>0.5</radius>
+              <length>1</length>
+            </cone>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='cone_visual'>
+          <geometry>
+            <cone>
+              <radius>0.5</radius>
+              <length>1</length>
+            </cone>
+          </geometry>
+          <material>
+            <ambient>0.300000012 0.300000012 0.300000012 1</ambient>
+            <diffuse>0.699999988 0.699999988 0.699999988 1</diffuse>
+            <specular>1 1 1 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='cone_1'>
+      <pose>7.3856339559773794 2.4968145463692082 0.49999999990833094 7.2126756194423086e-12 -9.1192070477705397e-10 4.7487031899816948e-17</pose>
+      <link name='cone_link'>
+        <inertial>
+          <inertia>
+            <ixx>0.074999999999999997</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.074999999999999997</iyy>
+            <iyz>0</iyz>
+            <izz>0.074999999999999997</izz>
+          </inertia>
+          <mass>1</mass>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <collision name='cone_collision'>
+          <geometry>
+            <cone>
+              <radius>0.5</radius>
+              <length>1</length>
+            </cone>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='cone_visual'>
+          <geometry>
+            <cone>
+              <radius>0.5</radius>
+              <length>1</length>
+            </cone>
+          </geometry>
+          <material>
+            <ambient>0.300000012 0.300000012 0.300000012 1</ambient>
+            <diffuse>0.699999988 0.699999988 0.699999988 1</diffuse>
+            <specular>1 1 1 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='cone_2'>
+      <pose>9.0806676613488548 -2.5485635161952285 0.49999999990833094 7.2126756093040478e-12 -9.1192070474022313e-10 4.7486459590763588e-17</pose>
+      <link name='cone_link'>
+        <inertial>
+          <inertia>
+            <ixx>0.074999999999999997</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.074999999999999997</iyy>
+            <iyz>0</iyz>
+            <izz>0.074999999999999997</izz>
+          </inertia>
+          <mass>1</mass>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <collision name='cone_collision'>
+          <geometry>
+            <cone>
+              <radius>0.5</radius>
+              <length>1</length>
+            </cone>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='cone_visual'>
+          <geometry>
+            <cone>
+              <radius>0.5</radius>
+              <length>1</length>
+            </cone>
+          </geometry>
+          <material>
+            <ambient>0.300000012 0.300000012 0.300000012 1</ambient>
+            <diffuse>0.699999988 0.699999988 0.699999988 1</diffuse>
+            <specular>1 1 1 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='cone_3'>
+      <pose>10.302923026136174 4.0836186226910254 0.49999999990833094 7.2126756178092529e-12 -9.1192070474797185e-10 4.7485970695915668e-17</pose>
+      <link name='cone_link'>
+        <inertial>
+          <inertia>
+            <ixx>0.074999999999999997</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.074999999999999997</iyy>
+            <iyz>0</iyz>
+            <izz>0.074999999999999997</izz>
+          </inertia>
+          <mass>1</mass>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <collision name='cone_collision'>
+          <geometry>
+            <cone>
+              <radius>0.5</radius>
+              <length>1</length>
+            </cone>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='cone_visual'>
+          <geometry>
+            <cone>
+              <radius>0.5</radius>
+              <length>1</length>
+            </cone>
+          </geometry>
+          <material>
+            <ambient>0.300000012 0.300000012 0.300000012 1</ambient>
+            <diffuse>0.699999988 0.699999988 0.699999988 1</diffuse>
+            <specular>1 1 1 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='cone_4'>
+      <pose>13.276944160498166 -0.86757701637612872 0.49999999984939719 4.5043641291928196e-11 -6.9783966660421981e-10 5.5464895767101421e-17</pose>
+      <link name='cone_link'>
+        <inertial>
+          <inertia>
+            <ixx>0.074999999999999997</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.074999999999999997</iyy>
+            <iyz>0</iyz>
+            <izz>0.074999999999999997</izz>
+          </inertia>
+          <mass>1</mass>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <collision name='cone_collision'>
+          <geometry>
+            <cone>
+              <radius>0.5</radius>
+              <length>1</length>
+            </cone>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='cone_visual'>
+          <geometry>
+            <cone>
+              <radius>0.5</radius>
+              <length>1</length>
+            </cone>
+          </geometry>
+          <material>
+            <ambient>0.300000012 0.300000012 0.300000012 1</ambient>
+            <diffuse>0.699999988 0.699999988 0.699999988 1</diffuse>
+            <specular>1 1 1 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='cone_5'>
+      <pose>13.111000062794337 7.1641654964265529 0.49999999991779048 -2.7902473810391691e-10 -1.5702786601082942e-09 -1.9653094520829438e-14</pose>
+      <link name='cone_link'>
+        <inertial>
+          <inertia>
+            <ixx>0.074999999999999997</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.074999999999999997</iyy>
+            <iyz>0</iyz>
+            <izz>0.074999999999999997</izz>
+          </inertia>
+          <mass>1</mass>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <collision name='cone_collision'>
+          <geometry>
+            <cone>
+              <radius>0.5</radius>
+              <length>1</length>
+            </cone>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='cone_visual'>
+          <geometry>
+            <cone>
+              <radius>0.5</radius>
+              <length>1</length>
+            </cone>
+          </geometry>
+          <material>
+            <ambient>0.300000012 0.300000012 0.300000012 1</ambient>
+            <diffuse>0.699999988 0.699999988 0.699999988 1</diffuse>
+            <specular>1 1 1 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='cone_6'>
+      <pose>17.478595731043345 1.4823199515554359 0.49999999989121902 -9.5569577691998589e-10 -5.0368298271618521e-09 7.0293194818074733e-16</pose>
+      <link name='cone_link'>
+        <inertial>
+          <inertia>
+            <ixx>0.074999999999999997</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.074999999999999997</iyy>
+            <iyz>0</iyz>
+            <izz>0.074999999999999997</izz>
+          </inertia>
+          <mass>1</mass>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <collision name='cone_collision'>
+          <geometry>
+            <cone>
+              <radius>0.5</radius>
+              <length>1</length>
+            </cone>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='cone_visual'>
+          <geometry>
+            <cone>
+              <radius>0.5</radius>
+              <length>1</length>
+            </cone>
+          </geometry>
+          <material>
+            <ambient>0.300000012 0.300000012 0.300000012 1</ambient>
+            <diffuse>0.699999988 0.699999988 0.699999988 1</diffuse>
+            <specular>1 1 1 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <light name='sun' type='directional'>
+      <pose>0 0 10 0 0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <intensity>1</intensity>
+      <direction>-0.5 0.10000000000000001 -0.90000000000000002</direction>
+      <diffuse>0.800000012 0.800000012 0.800000012 1</diffuse>
+      <specular>0.200000003 0.200000003 0.200000003 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <linear>0.01</linear>
+        <constant>0.90000000000000002</constant>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+  </world>
+</sdf>

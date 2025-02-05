@@ -7,7 +7,7 @@
         <!-- Nth in here -->
     </link>
     <joint name = "body_link_joint" type='fixed'>
-        <origin xyz="0 0 1.5" rpy="0 0 0"/>
+        <origin xyz="0 0 1.5" rpy="0 0 3.1415"/>
         <parent link="base_footprint"/>
         <child link="body"/>
     </joint>
@@ -37,13 +37,12 @@
             </geometry>
             <material name='grey'/>
         </visual>
-            <collision>
-               <origin xyz="0 0 0"/>
-               <geometry>
-                  <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/body.stl" scale=" 0.01 0.01 0.01"/>
-               </geometry>
-            </collision>
-
+        <collision>
+           <origin xyz="0 0 0"/>
+           <geometry>
+              <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/body.stl" scale=" 0.01 0.01 0.01"/>
+           </geometry>
+        </collision>
     </link>
 
     <!-- Leg 1 -->
@@ -97,13 +96,13 @@
             </geometry>
             <material name='black'></material>
         </visual>
-            <collision>
-                <origin xyz="0 0 0"/>
-                <geometry>
-                    <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/thigh.stl" scale=" 0.01 0.01 0.01"/>
+        <collision>
+            <origin xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/thigh.stl" scale=" 0.01 0.01 0.01"/>
 
-                </geometry>
-            </collision>
+            </geometry>
+        </collision>
     </link>
 
     <!-- Shin 1 -->
@@ -127,11 +126,11 @@
             </geometry>
             <material name='yellow'></material>
         </visual>
-            <collision>
-                <geometry>
-                    <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/shin.stl" scale=" 0.01 0.01 0.01"/>
-                </geometry>
-            </collision>
+        <collision>
+            <geometry>
+                <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/shin.stl" scale=" 0.01 0.01 0.01"/>
+            </geometry>
+        </collision>
     </link>
 
     <!-- /Leg 1 -->
@@ -158,11 +157,11 @@
             <material name='yellow'/>
         </visual>
 
-            <collision>
-                <geometry>
-                    <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/double_u_r.stl" scale=" 0.01 0.01 0.01"/>
-                </geometry>
-            </collision>
+        <collision>
+            <geometry>
+                <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/double_u_r.stl" scale=" 0.01 0.01 0.01"/>
+            </geometry>
+        </collision>
 
     </link>
 
@@ -186,11 +185,11 @@
             </geometry>
             <material name='black'></material>
         </visual>
-            <collision>
-                <geometry>
-                    <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/thigh.stl" scale=" 0.01 0.01 0.01"/>
-                </geometry>
-            </collision>
+        <collision>
+            <geometry>
+                <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/thigh.stl" scale=" 0.01 0.01 0.01"/>
+            </geometry>
+        </collision>
     </link>
 
 
@@ -215,11 +214,11 @@
             </geometry>
             <material name='yellow'></material>
         </visual>
-            <collision>
-                <geometry>
-                    <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/shin.stl" scale=" 0.01 0.01 0.01"/>
-                </geometry>
-            </collision>
+        <collision>
+            <geometry>
+                <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/shin.stl" scale=" 0.01 0.01 0.01"/>
+            </geometry>
+        </collision>
     </link>
     <!-- /Leg 2-->
 
@@ -243,11 +242,11 @@
             </geometry>
             <material name='yellow'></material>
         </visual>
-            <collision>
-                <geometry>
-                    <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/double_u.stl" scale=" 0.01 0.01 0.01"/>
-                </geometry>
-            </collision>
+        <collision>
+            <geometry>
+                <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/double_u.stl" scale=" 0.01 0.01 0.01"/>
+            </geometry>
+        </collision>
 
     </link>
 
@@ -271,11 +270,11 @@
             </geometry>
             <material name='black'></material>
         </visual>
-            <collision>
-                <geometry>
-                    <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/thigh.stl" scale=" 0.01 0.01 0.01"/>
-                </geometry>
-            </collision>
+        <collision>
+            <geometry>
+                <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/thigh.stl" scale=" 0.01 0.01 0.01"/>
+            </geometry>
+        </collision>
     </link>
 
 
@@ -299,11 +298,11 @@
             </geometry>
             <material name='yellow'></material>
         </visual>
-            <collision>
-                <geometry>
-                    <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/shin.stl" scale=" 0.01 0.01 0.01"/>
-                </geometry>
-            </collision>
+        <collision>
+            <geometry>
+                <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/shin.stl" scale=" 0.01 0.01 0.01"/>
+            </geometry>
+        </collision>
     </link>
     <!-- /Leg 3-->
 
@@ -327,11 +326,11 @@
             </geometry>
             <material name='yellow'></material>
         </visual>
-            <collision>
-                <geometry>
-                    <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/double_u_r.stl" scale=" 0.01 0.01 0.01"/>
-                </geometry>
-            </collision>
+        <collision>
+            <geometry>
+                <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/double_u_r.stl" scale=" 0.01 0.01 0.01"/>
+            </geometry>
+        </collision>
     </link>
 
     <!-- Thigh 4 -->
@@ -354,11 +353,11 @@
             </geometry>
             <material name='black'></material>
         </visual>
-            <collision>
-                <geometry>
-                    <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/thigh.stl" scale=" 0.01 0.01 0.01"/>
-                </geometry>
-            </collision>
+        <collision>
+            <geometry>
+                <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/thigh.stl" scale=" 0.01 0.01 0.01"/>
+            </geometry>
+        </collision>
     </link>
 
 
@@ -382,13 +381,11 @@
             </geometry>
             <material name='yellow'></material>
         </visual>
-            <collision>
-                <geometry>
-                    <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/shin.stl" scale=" 0.01 0.01 0.01"/>
-                    <material name='yellow'></material>
-
-                </geometry>
-            </collision>
+        <collision>
+            <geometry>
+                <mesh filename="$(find adsmt_description)/adsmt_description/urdf/designs/shin.stl" scale=" 0.01 0.01 0.01"/>
+            </geometry>
+        </collision>
     </link>
     <!-- /Leg 4 -->
 </robot>
