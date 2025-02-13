@@ -18,7 +18,7 @@
 
     <!-- body -->
     <gazebo reference="body">
-        
+
         <material>
           <script>
             <uri>file://media/materials/scripts/gazebo.material</uri>
@@ -84,7 +84,7 @@
     </gazebo>
 
     <gazebo reference="joint_1_thigh">
-        
+
         <material>
           <script>
             <uri>file://media/materials/scripts/gazebo.material</uri>
@@ -94,7 +94,7 @@
     </gazebo>
 
     <gazebo reference="joint_1_shin">
-        
+
         <material>
             <mu1>2.5</mu1>
             <mu2>2.5</mu2>
@@ -104,7 +104,7 @@
 
     <!-- Leg 2 -->
     <gazebo reference="joint_2_link">
-        
+
         <material>
           <script>
             <uri>file://media/materials/scripts/gazebo.material</uri>
@@ -114,11 +114,11 @@
     </gazebo>
 
     <gazebo reference="joint_2_thigh">
-        
+
     </gazebo>
 
     <gazebo reference="joint_2_shin">
-        
+
         <material>
           <script>
             <mu1>2.5</mu1>
@@ -130,7 +130,7 @@
 
     <!-- Leg 3 -->
     <gazebo reference="joint_3_link">
-        
+
         <material>
           <script>
             <uri>file://media/materials/scripts/gazebo.material</uri>
@@ -140,7 +140,7 @@
     </gazebo>
 
     <gazebo reference="joint_3_thigh">
-        
+
         <material>
           <script>
             <uri>file://media/materials/scripts/gazebo.material</uri>
@@ -150,7 +150,7 @@
     </gazebo>
 
     <gazebo reference="joint_3_shin">
-        
+
         <material>
             <mu1>2.5</mu1>
             <mu2>2.5</mu2>
@@ -160,7 +160,7 @@
 
     <!-- Leg 4 -->
     <gazebo reference="joint_4_link">
-        
+
         <material>
           <script>
             <uri>file://media/materials/scripts/gazebo.material</uri>
@@ -170,7 +170,7 @@
     </gazebo>
 
     <gazebo reference="joint_4_thigh">
-        
+
         <material>
           <script>
             <uri>file://media/materials/scripts/gazebo.material</uri>
@@ -180,7 +180,7 @@
     </gazebo>
 
     <gazebo reference="joint_4_shin">
-        
+
         <material>
             <mu1>2.5</mu1>
             <mu2>2.5</mu2>
@@ -234,6 +234,13 @@
             <cmd_max>1</cmd_max>
             <use_velocity_commands>1</use_velocity_commands>
         </plugin>
+
+        <plugin
+             filename="gz-sim-joint-controller-system"
+             name="gz::sim::systems::JointController">
+             <joint_name>wheel_1</joint_name>
+             <initial_velocity>0.0</initial_velocity>
+        </plugin>
         <!-- /Leg 1 -->
 
         <!-- Leg 2 -->
@@ -259,6 +266,13 @@
             <topic>model/ads-mt/joint/joint_2_1_1/0/cmd_pos</topic>
             <cmd_max>1</cmd_max>
             <use_velocity_commands>1</use_velocity_commands>
+        </plugin>
+
+        <plugin
+             filename="gz-sim-joint-controller-system"
+             name="gz::sim::systems::JointController">
+             <joint_name>wheel_2</joint_name>
+                          <initial_velocity>0.0</initial_velocity>
         </plugin>
         <!-- /Leg 2 -->
 
@@ -286,6 +300,13 @@
             <cmd_max>1</cmd_max>
             <use_velocity_commands>1</use_velocity_commands>
         </plugin>
+
+        <plugin
+             filename="gz-sim-joint-controller-system"
+             name="gz::sim::systems::JointController">
+             <joint_name>wheel_3</joint_name>
+                          <initial_velocity>0.0</initial_velocity>
+        </plugin>
         <!-- /Leg 3 -->
 
         <!-- Leg 4 -->
@@ -311,6 +332,13 @@
             <topic>model/ads-mt/joint/joint_4_1_1/0/cmd_pos</topic>
             <cmd_max>1</cmd_max>
             <use_velocity_commands>1</use_velocity_commands>
+        </plugin>
+
+        <plugin
+             filename="gz-sim-joint-controller-system"
+             name="gz::sim::systems::JointController">
+             <joint_name>wheel_4</joint_name>
+                          <initial_velocity>0.0</initial_velocity>
         </plugin>
         <!-- /Leg 4 -->
 

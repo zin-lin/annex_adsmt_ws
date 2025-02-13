@@ -43,6 +43,13 @@
   gz_type_name: "gz.msgs.Double"
   direction: ROS_TO_GZ
 
+# Joint Controller ROS -> GZ
+- ros_topic_name: "model/adsmt/joint/wheel_1/cmd_vel"
+  gz_topic_name: "model/ads-mt/joint/wheel_1/cmd_vel"
+  ros_type_name: "std_msgs/msg/Float64"
+  gz_type_name: "gz.msgs.Double"
+  direction: ROS_TO_GZ
+
 
 # Joint Controller ROS -> GZ
 - ros_topic_name: "model/adsmt/joint/joint_2/x/cmd_pos"
@@ -63,6 +70,13 @@
 # Joint Controller ROS -> GZ
 - ros_topic_name: "model/adsmt/joint/joint_2_1_1/x/cmd_pos"
   gz_topic_name: "model/ads-mt/joint/joint_2_1_1/0/cmd_pos"
+  ros_type_name: "std_msgs/msg/Float64"
+  gz_type_name: "gz.msgs.Double"
+  direction: ROS_TO_GZ
+
+# Joint Controller ROS -> GZ
+- ros_topic_name: "model/adsmt/joint/wheel_2/cmd_vel"
+  gz_topic_name: "model/ads-mt/joint/wheel_2/cmd_vel"
   ros_type_name: "std_msgs/msg/Float64"
   gz_type_name: "gz.msgs.Double"
   direction: ROS_TO_GZ
@@ -93,6 +107,14 @@
 
 
 # Joint Controller ROS -> GZ
+- ros_topic_name: "model/adsmt/joint/wheel_3/cmd_vel"
+  gz_topic_name: "model/ads-mt/joint/wheel_3/cmd_vel"
+  ros_type_name: "std_msgs/msg/Float64"
+  gz_type_name: "gz.msgs.Double"
+  direction: ROS_TO_GZ
+
+
+# Joint Controller ROS -> GZ
 - ros_topic_name: "model/adsmt/joint/joint_4/x/cmd_pos"
   gz_topic_name: "model/ads-mt/joint/joint_4/0/cmd_pos"
   ros_type_name: "std_msgs/msg/Float64"
@@ -115,3 +137,10 @@
   gz_type_name: "gz.msgs.Double"
   direction: ROS_TO_GZ
 
+
+# Joint Controller ROS -> GZ
+- ros_topic_name: "model/adsmt/joint/wheel_4/cmd_vel"
+  gz_topic_name: "model/ads-mt/joint/wheel_4/cmd_vel"
+  ros_type_name: "std_msgs/msg/Float64"
+  gz_type_name: "gz.msgs.Double"
+  direction: ROS_TO_GZ
