@@ -10,6 +10,10 @@
 	path = src/path_planner_package
 	branch = master
 	url = git@github.com:zin-lin/path_planner_package.git
+[submodule "src/motion_package"]
+	path = src/motion_package
+	branch = master
+	url = git@github.com:zin-lin/motion_package.git
 [submodule "src/control_package"]
 	path = src/control_package
 	url = git@github.com:zin-lin/control_package.git
