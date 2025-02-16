@@ -75,6 +75,14 @@
           </camera>
         </sensor>
 
+        <!-- IMU data -->
+        <sensor name="imu_sensor" type="imu">
+            <always_on>1</always_on>
+            <update_rate>1</update_rate>
+            <visualize>true</visualize>
+            <topic>model/ads-mt/imu</topic>
+        </sensor>
+
     </gazebo>
 
 
@@ -338,10 +346,15 @@
              filename="gz-sim-joint-controller-system"
              name="gz::sim::systems::JointController">
              <joint_name>wheel_4</joint_name>
-                          <initial_velocity>0.0</initial_velocity>
+             <initial_velocity>0.0</initial_velocity>
         </plugin>
         <!-- /Leg 4 -->
 
+        <!-- This is for the IMU -->
+        <plugin filename="gz-sim-imu-system"
+                name="gz::sim::systems::Imu">
+        </plugin>
+        <!-- /End IMU -->
 
         <!-- /Broadcasters -->
     </gazebo>
