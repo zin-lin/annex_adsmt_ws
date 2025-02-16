@@ -1,0 +1,14 @@
+.idea
+/.idea
+*.idea
+*/.idea
+
+*/install
+*/build
+*/log
+/venv
+/test
+
+*.bash
+
+*.env

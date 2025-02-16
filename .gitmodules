@@ -10,9 +10,9 @@
 	path = src/path_planner_package
 	branch = master
 	url = git@github.com:zin-lin/path_planner_package.git
-[submodule "src/lidar_package"]
+[submodule "src/motion_package"]
 	path = src/lidar_package
-	url = git@github.com:zin-lin/lidar_package.git
+	url = git@github.com:zin-lin/motion_package.git
 	branch = master
 [submodule "src/control_package"]
 	path = src/control_package
