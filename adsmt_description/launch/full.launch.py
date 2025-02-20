@@ -73,6 +73,25 @@ def generate_launch_description():
         output='screen',
     )
 
+    vcu_node = Node(
+        package='vehicle_control_package',
+        executable='vehicle_control',
+        output='both', # both means both log files and terminal
+    )
+
+    imu_node = Node(
+        package='motion_package',
+        executable='imu',
+        output='both', # both means both log files and terminal
+    )
+
+    odometry_node = Node(
+        package='motion_package',
+        executable='odometry',
+        output='both',  # both means both log files and terminal
+    )
+
+
     # empty launch_des
     launch_description = LaunchDescription()
 
@@ -83,6 +102,9 @@ def generate_launch_description():
     launch_description.add_action(spawn_model_gazebo)
     launch_description.add_action(robot_state_publisher)
     launch_description.add_action(gazebo_bridge)
+    launch_description.add_action(vcu_node)
+    launch_description.add_action(odometry_node)
+    launch_description.add_action(imu_node)
 
     return launch_description
 
