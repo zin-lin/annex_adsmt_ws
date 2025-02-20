@@ -4,3 +4,7 @@ numpy~=1.26.4
 xacro~=2.0.11
 launch~=3.4.3
 stable-baselines3[extra]
+setuptools~=68.1.2
+rclpy~=7.1.3
+pyqt6~=6.8.1
+TkOffice~=0.0.6
