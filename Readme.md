@@ -99,37 +99,68 @@ ___
 ___
 
 ## Controlling
-- currently terminal control is available
-- make sure to run `vehicle_control_package vehicle_control` and `control_package terminal control`
+- 1. `Terminal` Control
+  - make sure to run `vehicle_control_package vehicle_control` and `control_package terminal control`
 	
-- terminal 1 
-	```shell
-	ros2 run vehicle_control_package vehicle_control
-	```
+  - terminal 1 
+      ```shell
+      ros2 run vehicle_control_package vehicle_control
+      ```
  
-- terminal 2
-	```shell
-	ros2 run control_package terminal_control
-	```
-- use `W-S-A-D` as if a game
-- one should see
-	![Terminal Control](docs/technical_imgs/control_pkg_demo.png)
-  	![VCU vehicle control](docs/technical_imgs/vcu_pkg_demo.png)
+  - terminal 2
+      ```shell
+      ros2 run control_package terminal_control
+      ```
+  - use `W-S-A-D` as if a game
+  - one should see
+      ![Terminal Control](docs/technical_imgs/control_pkg_demo.png)
+        ![VCU vehicle control](docs/technical_imgs/vcu_pkg_demo.png)
+- 2. `Gui` control
+  - to test first one must launch gazebo sim files and `odometry` as well as `imu` nodes of the motion package to later plot the data
+    - these packages will collect the data
+  - `gazebo launch terminal`
+     ```shell
+    ros2 launch adsmt_description full.launch.py
+     ```
+  - `gui terminal`
+       ```shell
+    ros2 launch control_package gui.launch.py
+     ```
+  - output
+  - ![GUI Demo](docs/technical_imgs/gui_demo.png)
+
+- 3. `Path-Planning-based-Autonomous` Control
+  - to test first one must launch gazebo sim files and `odometry` as well as `imu` nodes of the motion package to later plot the data
+    - these packages will collect the data
+  - `gazebo launch terminal`
+     ```shell
+    ros2 launch adsmt_description full.launch.py
+     ```
+  - `path planner package terminal`
+     ```shell
+    ros2 launch path_planner_package <desired_mode>.launch.py
+     ```
 ---
 ## Current System Stats
-| Indicators | Passed            | Not Yet Capable |
-|------------|-------------------|-----------------|
-| Builds     | ✅                 | -               |
-| Autonomous | -                 | ✅               |
-| Simulation | ✅                 | -               |
-| Training   | -                 | ✅               |
-| Walk       | ✅*semi-functional | -               |
+| Indicators       | Passed | Not Yet Capable |
+|------------------|--------|-----------------|
+| Builds           | ✅      | -               |
+| Autonomous       | ✅      | -               |
+| Manual-control   | ✅      | -               |
+| Simulation       | ✅      | -               |
+| Training         | -      | ✅               |
+| Walk             | ✅      | -               |
+| Path_Planning    | ✅      | -               |
+| Sim Drive        | ✅      | -               |
+| Real-world Drive | ✅      | -               |
+| Sim-Perception   | ✅      | -               |
+
 ---
 
 ## Coming Up
 - Autonomous sim performance using Sim Perception on `gz sim`
-- terminal control behavioural update
-- control via `flask` app
+- gui testing
+- control via `perception`
 - Any relating issues should be reported on [Issue Board](https://github.com/zin-lin/annex_adsmt_ws/issues)
 ___
 
