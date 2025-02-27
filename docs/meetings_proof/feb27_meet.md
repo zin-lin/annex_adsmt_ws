@@ -99,7 +99,7 @@ ___
 
 - `general-circuit` architecture
   
-  - ![general](../technical_imgs/general-circuit-assmebly.png) 
+  - ![general](../technical_imgs/general-circuit-assembly.png) 
 - `servo-assembly` architecture
   - ![servo-assembly-unit](../technical_imgs/servo_assembly.png)
 
