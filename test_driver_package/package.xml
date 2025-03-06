@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package format="2">
+    <name>test_driver_package</name>
+    <version>0.0.1</version>
+    <description>Test drivers for the ADS-MT project</description>
+    <maintainer email="youremail@example.com">Your Name</maintainer>
+    <license>MIT</license>
+
+    <!-- Dependencies -->
+    <buildtool_depend>catkin</buildtool_depend>
+    <depend>urdf</depend>
+    <depend>xacro</depend>
+    <depend>robot_state_publisher</depend>
+    <depend>joint_state_publisher</depend>
+    <depend>gazebo_ros</depend>
+    <depend>ros_gz_sim</depend>
+    <depend>ros_gz_bridge</depend>
+    <depend>ros_gz_interfaces</depend>
+
+    <export>
+        <build_type>ament_cmake</build_type>
+    </export>
+</package>
