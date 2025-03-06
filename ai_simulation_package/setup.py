@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 import os
 from glob import glob
 
-package_name = 'simulation_package'
+package_name = 'ai_simulation_package'
 
 setup(
     name=package_name,
