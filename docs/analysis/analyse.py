@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Load CSV file
-file_path = 'docs/odo.csv'
+file_path = 'docs/analysis/test_data_logs/acceleration-walk/odo1.csv'
 df = pd.read_csv(file_path)
 
 # Plot ros y vs ros x, x = ros y, y = ros x

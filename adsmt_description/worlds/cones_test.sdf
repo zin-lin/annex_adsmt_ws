@@ -30,8 +30,8 @@
           <surface>
             <friction>
               <ode>
-                <mu>1.0</mu>  <!-- Static friction (resistance to starting motion) -->
-                <mu2>2.0</mu2> <!-- Dynamic friction (resistance while sliding) -->
+                <mu>0.6</mu>  <!-- Static friction (resistance to starting motion) -->
+                <mu2>0.6</mu2> <!-- Dynamic friction (resistance while sliding) -->
               </ode>
             </friction>
             <bounce/>
