@@ -10,3 +10,4 @@ pyqt6~=6.8.1
 TkOffice~=0.0.6
 pandas~=2.2.3
 matplotlib~=3.6.3
+seaborn~=0.13.2
