@@ -27,7 +27,7 @@
         </material>
         <sensor type="depth_camera" name="camera_sensor">
           <topic>perception</topic>
-          <pose>-0.12 0 -0.43 0 0.12 3.142</pose>
+          <pose>-0.012 0 -0.043 0 0.12 3.142</pose>
           <always_on>1</always_on>
           <update_rate>10</update_rate>
           <enable_metrics>true</enable_metrics>
